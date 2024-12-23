@@ -24,7 +24,7 @@
 ### 📫 프로필
 - 이름: 남경민
 - 학교: 가천대학교 Gachon.Univ
-- 학과: 인공지능학과과
+- 학과: 인공지능학과
 - 관심 분야: 웹/UIUX/AI
 - 이메일: kyeongmin35@gachon.ac.kr
 - GitHub: NamKyeongMin
