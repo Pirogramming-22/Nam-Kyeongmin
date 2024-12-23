@@ -84,31 +84,48 @@
             width: 1280px;
             background-color: yellow;
             display: inline-block; /*margin을 양끝으로부터 일정하게 위치하도록 설정*/
-            /* <->'inline':width의 영향을 받지 않음, 표현X*/
+            /* <->'inline':width의 영향을 받지 않음, 표현X */
         }
         #header {
             text-align: left;
+            position: relative; /*header-hamburger(absolute)의 기준점(조상)*/
         }
         #header-hamburger {
-            margin-top: 18px;
+            position: absolute;
+            top: 18px;
+            left: -10px;
             padding: 10px; 
-            /* margin:외부여백
-            padding:내부여백 -> 버튼으로 인식 -> 버튼에 대한 커서 반응함 */
+            /*margin:외부여백
+            padding:내부여백 -> 버튼으로 인식 -> 버튼에 대한 커서 반응함*/
             display: inline-block;
             background: none;
             border: none;
             cursor: pointer;
         }
-        #header-hamburger:hover {
-            /*스페이스 하지 않는 것 주의!*/
+        #header-hamburger:hover::before {
+            /*before는 header-hamburger의 자식*/
+            position: absolute;
+            /*기준점은 부모인 'header-hamburger'*/
+            content: '';
+            left: 1px;
+            top: 1px;
+            /*기준점(부모)으로부터 위치 맞추기 위함*/
+            width: 44px;
+            height: 44px;
             background-color: var(--color_option_bg);
             border-radius: 50%;
+        }
+        #header-hamburger:hover > div {
+            position: relative;
+            left: 1px;
+            top: 1px;
         }
         #header-hamburger > div {
             background-image: url(./sp_main.png);
             width: 26px;
             height: 26px;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; 
+            /*주어진 이미지 내에서만 이동하도록(범위 밖 이동X)*/
             background-position: -314px -168px;
             background-size: 463px 440px;
         }
