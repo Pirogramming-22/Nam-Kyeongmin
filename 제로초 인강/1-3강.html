@@ -20,11 +20,21 @@
             display: inline-block; /*margin을 양끝으로부터 일정하게 위치하도록 설정*/
             /* <->'inline':width의 영향을 받지 않음, 표현X*/
         }
+        #header {
+            text-align: left;
+        }
         #header-hamburger {
             margin-top: 18px;
-            background-color: blue;
-            width: 46px;
-            height: 46px;
+            padding: 10px;
+            display: inline-block;
+        }
+        #header-hamburger > div {
+            background-image: url(./sp_main.png);
+            width: 26px;
+            height: 26px;
+            background-repeat: no-repeat;
+            background-position: -311px -166px;
+            background-size: 463px 440px;
         }
         #main {
             height: 2000px;
@@ -35,7 +45,9 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamburger"></div>
+                <div id="header-hamburger">
+                    <div></div>
+                </div>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
