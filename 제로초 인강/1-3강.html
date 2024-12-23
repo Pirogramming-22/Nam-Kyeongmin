@@ -107,6 +107,7 @@
             position: absolute;
             /*기준점은 부모인 'header-hamburger'*/
             content: '';
+            z-index: 0;
             left: 1px;
             top: 1px;
             /*기준점(부모)으로부터 위치 맞추기 위함*/
@@ -124,6 +125,8 @@
             background-image: url(./sp_main.png);
             width: 26px;
             height: 26px;
+            position: relative; /*L,R,B,T없으면 static처럼 제자리에 위치*/
+            z-index: 1;
             background-repeat: no-repeat; 
             /*주어진 이미지 내에서만 이동하도록(범위 밖 이동X)*/
             background-position: -314px -168px;
@@ -132,6 +135,15 @@
         #main {
             height: 2000px;
         }
+        .blind {
+            /*스크린 리더기가 인식할 수 있도록 설정(화면에는 표시X)*/
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -139,7 +151,10 @@
         <div id="wrap-center">
             <div id="header">
                 <button id="header-hamburger">
+                    <!-- ::before -->
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
                 </button>
             </div>
             <div id="search"></div>
