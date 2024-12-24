@@ -86,7 +86,6 @@
         }
         #wrap-center {
             width: 1280px;
-            background-color: yellow;
             display: inline-block; /*margin을 양끝으로부터 일정하게 위치하도록 설정*/
             /* <->'inline':width의 영향을 받지 않음, 표현X */
         }
@@ -203,15 +202,53 @@
             border-radius: 33px;
             display: inline-block;
             text-align: left;
-            padding: 0px 0px 0px 28px; /*검색창 앞 여백 공간 확보*/
+            padding: 0px 0px 0px 28px; /*검색창 앞 여백(padding left) 확보*/
         }
-        #search > form > input {
+        #search-input {
             width: 480px;
             height: 58px;
             /*= 'height: 100%', form의 height에서 border 뺀값과 동일하기 때문*/
             padding: 17px 0px;
             border: none;
             outline: none;
+            font-size: 1.5rem;
+            line-height: 24px;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", 
+            "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+        }
+        #search-right {
+            display: inline-block;
+        }
+        #search-keyboard::before {
+            content: "";
+            display: block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-size: 452px 436px;
+            background-position: -148px -301px;
+            background-repeat: no-repeat;
+            width: 24px;
+            height: 14px;
+        }
+        #search-recent::before {
+            content: "";
+            display: block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-size: 452px 436px;
+            background-position: -154px -211px;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 6px;
+        }
+        #search-button::before {
+            content: "";
+            display: block;
+            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-size: 452px 436px;
+            background-position: -405px -79px;
+            background-repeat: no-repeat;
+            width: 25px;
+            height: 25px;
         }
     </style>
 </head>
@@ -254,17 +291,18 @@
                 <form action="">
                     <label for="search-input" class="blind">검색어 입력</label>
                     <input id="search-input" type="text" 
-                    placeholder="검색어를 입력하세요."/>
+                    placeholder="검색어를 입력해 주세요."/>
                     <div id="search-right">
-                        <a href="#" id="search-keyboard">
+                        <button href="#" id="search-keyboard">
                             <span class="blind">입력도구</span>
-                        </a>
-                        <a href="#" id="search-recent">
+                        </button>
+                        <button href="#" id="search-recent">
                             <span class="blind">자동완성/최근검색어펼치기</span>
-                        </a>
+                        </button>
                         <button id="search-button">
                             <div><span class="blind">검색</span></div>
                         </button>
+                        <!--'a태그' => 다른 페이지로 이동 /'button' => only 클릭 효과-->
                     </div>
                     <!--1번 사용은 'id', 여러번 사용은 'class'-->
                 </form>
