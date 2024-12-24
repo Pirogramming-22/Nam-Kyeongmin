@@ -73,6 +73,10 @@
             --color_shop: #9858f5;
             --color_shop_rgb: 152, 88, 245;
         }
+        * {
+            box-sizing: border-box;
+            /*border까지 영역의 width로 포함*/
+        }
         html, body {
             margin: 0;
             padding: 0;
@@ -90,10 +94,11 @@
             text-align: left;
             position: relative; /*header-hamburger(absolute)의 기준점(조상)*/
         }
-        #header-hamburger {
+        /*공통화 작업(CSS 코드 정리)*/
+        #header-hamburger, #header-naverpay, #header-navertalk,
+        #header-notice, #header-shoppingcart {
             position: absolute;
-            top: 18px;
-            left: -10px;
+            top: 6px;
             padding: 10px; 
             /*margin:외부여백
             padding:내부여백 -> 버튼으로 인식 -> 버튼에 대한 커서 반응함*/
@@ -102,7 +107,9 @@
             border: none;
             cursor: pointer;
         }
-        #header-hamburger:hover::before {
+        #header-hamburger:hover::before, #header-naverpay:hover::before, 
+        #header-navertalk:hover::before, #header-notice:hover::before, 
+        #header-shoppingcart:hover::before {
             /*before는 header-hamburger의 자식*/
             position: absolute;
             /*기준점은 부모인 'header-hamburger'*/
@@ -116,12 +123,8 @@
             background-color: var(--color_option_bg);
             border-radius: 50%;
         }
-        #header-hamburger:hover > div {
-            position: relative;
-            left: 1px;
-            top: 1px;
-        }
-        #header-hamburger > div {
+        #header-hamburger > div, #header-naverpay > div, #header-navertalk > div,
+        #header-notice > div, #header-shoppingcart > div {
             background-image: url(./sp_main.png);
             width: 26px;
             height: 26px;
@@ -129,8 +132,56 @@
             z-index: 1;
             background-repeat: no-repeat; 
             /*주어진 이미지 내에서만 이동하도록(범위 밖 이동X)*/
-            background-position: -314px -168px;
             background-size: 463px 440px;
+        }
+        /*공통화 작업(CSS 코드 정리)*/
+        #header-hamburger {
+            left: -10px;
+        }
+        #header-hamburger > div {
+            background-position: -314px -168px;
+        }
+        #header-naverpay {
+            top: 4px;
+            left: 39px;
+        }
+        #header-naverpay:hover::before {
+            left: 3px;
+            top: 0px;
+            width: 47px;
+            height: 47px;
+            /*idea:'다수결', CSS는 순차실행하기 때문에 특정 값 반영가능*/
+        }
+        #header-naverpay > div {
+            width: 35px;
+            height: 35px;
+            background-position: -248px -261px;
+            background-size: 463px 442px;
+        }
+        #header-navertalk {
+            right: 91px;
+        }
+        #header-navertalk:hover::before {
+            left: 2px;
+            top: 2px;
+        }
+        #header-navertalk > div {
+            width: 30px;
+            height: 30px;
+            background-position: -106px -331px;
+            background-size: 482px 458px;
+        }
+        #header-notice {
+            right: 42px;
+        }
+        #header-notice > div {
+            background-position: -314px -235px;
+        }
+        #header-shoppingcart {
+            right: -10px;
+        }
+        #header-shoppingcart > div {
+            background-position: -36px -319px;
         }
         #main {
             height: 2000px;
@@ -154,6 +205,30 @@
                     <!-- ::before -->
                     <div></div>
                     <span class="blind">확장 영역</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-naverpay">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-navertalk">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">네이버 톡</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-notice">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">알림</span>
+                    <!-- ::after -->
+                </button>
+                <button id="header-shoppingcart">
+                    <!-- ::before -->
+                    <div></div>
+                    <span class="blind">장바구니</span>
                     <!-- ::after -->
                 </button>
             </div>
