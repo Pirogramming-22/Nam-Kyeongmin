@@ -77,7 +77,7 @@
             box-sizing: border-box;
             /*border까지 영역의 width로 포함*/
         }
-        html, body {
+        html, body, form {
             margin: 0;
             padding: 0;
         }
@@ -93,6 +93,7 @@
         #header {
             text-align: left;
             position: relative; /*header-hamburger(absolute)의 기준점(조상)*/
+            height: 64px;
         }
         /*공통화 작업(CSS 코드 정리)*/
         #header-hamburger, #header-naverpay, #header-navertalk,
@@ -195,6 +196,23 @@
             margin: -1px;
             overflow: hidden;
         }
+        #search > form {
+            width: 708px;
+            height: 60px;
+            border: 1px solid #03c75a;
+            border-radius: 33px;
+            display: inline-block;
+            text-align: left;
+            padding: 0px 0px 0px 28px; /*검색창 앞 여백 공간 확보*/
+        }
+        #search > form > input {
+            width: 480px;
+            height: 58px;
+            /*= 'height: 100%', form의 height에서 border 뺀값과 동일하기 때문*/
+            padding: 17px 0px;
+            border: none;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -232,7 +250,15 @@
                     <!-- ::after -->
                 </button>
             </div>
-            <div id="search"></div>
+            <div id="search">
+                <form action="">
+                    <label for="search-input" class="blind">검색어 입력</label>
+                    <input id="search-input" type="text" />
+                    <button class="blind">검색</button> 
+                    <!--1번사용은 'id', 여러번 사용은 'class'-->
+                </form>
+                <!--form 내부 input block => enter시 자동으로 다음 페이지 넘김 가능-->
+            </div>
             <div id="nav"></div>
             <div id="main"></div>
         </div>
