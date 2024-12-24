@@ -200,7 +200,7 @@
             height: 60px;
             border: 1px solid #03c75a;
             border-radius: 33px;
-            display: inline-block;
+            display: inline-flex;
             text-align: left;
             padding: 0px 0px 0px 28px; /*검색창 앞 여백(padding left) 확보*/
         }
@@ -218,7 +218,15 @@
             "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
         }
         #search-right {
-            display: inline-block;
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: stretch;
+        }
+        #search-keyboard, #search-recent, #search-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
         }
         #search-keyboard::before {
             content: "";
