@@ -93,7 +93,7 @@
         #header {
             text-align: left;
             position: relative; /*header-hamburger(absolute)의 기준점(조상)*/
-            height: 64px;
+            height: 52px;
         }
         /*공통화 작업(CSS 코드 정리)*/
         #header-hamburger, #header-naverpay, #header-navertalk,
@@ -253,9 +253,20 @@
             <div id="search">
                 <form action="">
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="search-input" type="text" />
-                    <button class="blind">검색</button> 
-                    <!--1번사용은 'id', 여러번 사용은 'class'-->
+                    <input id="search-input" type="text" 
+                    placeholder="검색어를 입력하세요."/>
+                    <div id="search-right">
+                        <a href="#" id="search-keyboard">
+                            <span class="blind">입력도구</span>
+                        </a>
+                        <a href="#" id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </a>
+                        <button id="search-button">
+                            <div><span class="blind">검색</span></div>
+                        </button>
+                    </div>
+                    <!--1번 사용은 'id', 여러번 사용은 'class'-->
                 </form>
                 <!--form 내부 input block => enter시 자동으로 다음 페이지 넘김 가능-->
             </div>
