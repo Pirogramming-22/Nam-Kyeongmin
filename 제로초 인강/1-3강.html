@@ -443,7 +443,7 @@
                 </form>
                 <!--form 내부 input block => enter시 자동으로 다음 페이지 넘김 가능-->
             </div>
-            <div id="nav">
+            <nav id="nav">
                 <ul>
                     <li>
                         <a href="">
@@ -506,8 +506,86 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-            <div id="main"></div>
+            </nav>
+            <style>
+                #main {
+                    margin-top: 22px;
+                    display: flex;
+                }
+                #main-left {
+                    width: 830px;
+                    margin-right: 30px;
+                }
+                #main-right {
+                    width: 420px;
+                }
+                aside[id$=ad] {
+                    /*aside id가 ad로 끝나는 태그에 모두 적용!*/
+                    border-radius: 8px;
+                    background: gray;
+                    margin-bottom: 16px;
+                }
+                #main-left-ad{
+                    height: 130px;
+                }
+                section[id^=main] {
+                    /*section id가 main으로 시작하는 태그에 모두 적용!*/
+                    box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, .04);
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                #main-newsstand {
+                    height: 426px;
+                }
+                #main-shopping {
+                    height: 560px;
+                }
+                #main-login {
+                    height: 164px;
+                }
+                #main-right-ad {
+                    height: 240px;
+                }
+                #main-mini-ad {
+                    height: 80px;
+                }
+                .main-weather-and-stock {
+                    padding: 0 18px;
+                }
+                .main-weather-and-stock > header {
+                    height: 52px;
+                    padding: 6px 0px;
+                }
+                .main-weather-and-stock > div {
+                    border-top: 1px solid var(--color_border_in);
+                }
+                #main-weather {
+                    height: 236px;
+                }
+                #main-stock {
+                    height: 236px;
+                }
+            </style>
+            <main id="main">
+                <div id="main-left">
+                    <aside id="main-left-ad"></aside> <!--광고배너-->
+                    <section id="main-newsstand"></section>
+                    <section id="main-shopping"></section>
+                </div>
+                <div id="main-right">
+                    <section id="main-login"></section>
+                    <aside id="main-right-ad"></aside>
+                    <aside id="main-mini-ad"></aside>
+                    <section id="main-weather" class="main-weather-and-stock">
+                        <header>날씨</header>
+                        <div></div>
+                    </section>
+                    <section id="main-stock" class="main-weather-and-stock">
+                        <header>증시</header>
+                        <div></div>
+                    </section>
+                </div>
+            </main>
         </div>
     </div>
 </body>
