@@ -80,6 +80,9 @@
         html, body, form {
             margin: 0;
             padding: 0;
+            font-size: 10.5px;
+            line-height: 10.5px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Malgun Gothic', "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
         }
         #wrap {
             text-align: center;
@@ -214,7 +217,9 @@
             padding: 17px 0px;
             border: none;
             outline: none;
-            font-size: 1.3rem;
+            font-size: 2rem; 
+            /*rem = html font-size의 배수 단위
+            즉, form의 font-size(10.5px)의 2배인 21px*/
             line-height: 24px;
             font-weight: bold;
             font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", 
@@ -338,7 +343,106 @@
                 </form>
                 <!--form 내부 input block => enter시 자동으로 다음 페이지 넘김 가능-->
             </div>
-            <div id="nav"></div>
+            <style>
+                #nav > ul {
+                    display: flex;
+                    list-style-type: none;
+                    justify-content: center;
+                    font-size: 1.3rem;
+                    line-height: 20px;
+                }
+                #nav a {
+                    text-decoration: none;
+                }
+                #nav a:visited {
+                    color: black;
+                }
+                #nav li {
+                    width: 64px;
+                    /*height는 내부(이미지,글자) 높이의 총합과 동일 -> 고정할 필요X*/
+                    margin-left: -10.5px;
+                }
+                #nav li:nth-of-type(1) {
+                    /*'메일'을 가르킴*/
+                    margin-left: 0px;
+                }
+                #nav li:nth-of-type(2) {
+                    /*'카페'를 가르킴*/
+
+                }
+                /*nth-child() : 태그 종류 구분없이 순서 부여
+                nth-of-type() : 태그 종류 구분 & 순서 부여*/
+            </style>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>카페</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>블로그</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>스토어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>뉴스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>증권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>부동산</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>지도</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>웹툰</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>치지직</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span class="blind">더보기</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div id="main"></div>
         </div>
     </div>
