@@ -384,6 +384,413 @@
             margin-top: 2px;
             display: inline-block;
         }
+        #main {
+            margin-top: 22px;
+            display: flex;
+        }
+        #main-left {
+            width: 830px;
+            margin-right: 30px;
+        }
+        #main-right {
+            width: 420px;
+        }
+        aside[id$=ad] {
+            /*aside id가 ad로 끝나는 태그에 모두 적용!*/
+            border-radius: 8px;
+            background: gray;
+            margin-bottom: 16px;
+        }
+        #main-left-ad{
+            height: 130px;
+        }
+        section[id^=main] {
+            /*section id가 main으로 시작하는 태그에 모두 적용!*/
+            box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, .04);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        #main-login {
+            height: 164px;
+            padding: 21px 20px 18px;
+            font-size: 1.4rem;
+            display: flex;
+            flex-flow: column;
+        }
+        #main-login-button {
+            margin-top: 13px;
+            padding: 17px 0;
+            background-color: #03c75a;
+            color: white;
+            height: 56px;
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 4px;
+            text-decoration: none;
+            margin-bottom: 16px;
+        }
+        #main-login-button i {
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-position: 1px -298px;
+            background-repeat: no-repeat;
+            width: 72px;
+            height: 15px;
+            display: inline-block;
+            margin: 3px 8px 0 0;
+            vertical-align: -2px;
+        }
+        #main-login > div:first-of-type {
+            line-height: 20px; /*line-height가 곧 content-height가 됨*/
+        }
+        #main-login > div:last-of-type {
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+        }
+        #main-login > div:last-of-type a {
+            text-decoration: none;
+            color: var(--color_caption2);
+            letter-spacing: -0.4px;
+        }
+        #main-login > div:last-of-type a:first-of-type,
+        #main-login > div:last-of-type a:last-of-type {
+            position: relative;
+            top: 6px;
+        }
+        #main-login > div:last-of-type a:hover {
+            text-decoration: underline;
+        }
+        #main-login > div:last-of-type > a:nth-of-type(2)::before,
+        #main-login > div:last-of-type > a:nth-of-type(2)::after {
+            content: "";
+            display: inline-block;
+            width: 1px;
+            height: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 4px 12px 0;
+        }
+        #main-right-ad {
+            height: 240px;
+        }
+        #main-mini-ad {
+            height: 80px;
+        }
+        .main-weather-and-stock {
+            padding: 0 18px;
+        }
+        .main-weather-and-stock > header {
+            height: 52px;
+            padding: 6px 0px;
+        }
+        .main-weather-and-stock > div {
+            border-top: 1px solid var(--color_border_in);
+        }
+        #main-weather {
+            height: 236px;
+        }
+        #main-stock {
+            height: 236px;
+        }
+        #main-newsstand {
+            height: 426px;
+            display: flex;
+            flex-flow: column;
+        }
+        .left-section {
+            flex: 1; /*최대 영역 차지하도록 함*/
+            /*padding: 18px 20px 17px; -> 제로초가 쓴 것*/
+        }
+        .left-section .dot::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 9px 7px 0;
+            border-radius: 50%; /*원 생성*/
+            vertical-align: top;
+        }
+        .left-section .dot, .left-section .slash {
+            color: rgba(8, 8, 8, .5);
+            font-weight: 800;
+        }
+        .left-section .slash {
+            position: relative;
+            padding-left: 26px;
+        }
+        .left-section .slash::before {
+            content: "";
+            display: inline-block;
+            position: absolute; /*position:static이 아닌 부모 태그 필요 => a태그 이용*/
+            top: 4px;
+            left: 13px;
+            width: 1px;
+            height: 15px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            /*
+            vendor-prefix => 다른 브라우저 호환성 고려
+            -webkit-transform: skewX(-15deg);
+            -ms-transform: skewX(-15deg);
+            */
+            transform: skewX(-15deg);
+        }
+        .left-section header {
+            font-size: 1.6rem;
+            color: rgba(8, 8, 8, .5);
+            display: flex;
+            justify-content: flex-start;
+            padding: 18px 20px 17px; /*내가 쓴 것*/
+            line-height: 23px;
+        }
+        #main-shopping header {
+            padding: 19px 20px 17px;
+        }
+        .left-section header .bold {
+            /*class name 전 한칸 스페이스 주의!*/
+            font-weight: bold;
+            color: black;
+        }
+        #main-newsstand-gray, #main-shopping-gray {
+            margin: 0 20px;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: flex-start;
+            background-color: var(--color_option_bg);
+            border-radius: 4px;
+            line-height: 26px;
+            font-size: 1.4rem;
+            height: 50px;
+        }
+        #main-shopping-gray {
+            padding: 15px 20px 14px;
+            margin: 0 20px 18px;
+        }
+        #main-newsstand-gray .left, #main-shopping-gray .left {
+            display: flex;
+            flex: 1;
+        }
+        #main-newsstand-gray .left > a:first-of-type {
+            /*
+            '>'있어야 직속 자식에게 적용가능.
+            없으면 main-newsstand-animation a에게도 적용됨.
+            */
+            width: 85.5px;
+        }
+        #main-shopping-gray .left > a:first-of-type {
+            width: 95.27px;
+            font-weight: 700;
+        }
+        #main-newsstand-gray .left > a:first-of-type::after {
+            content: "";
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-position: -236px -182px;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 6px;
+            display: inline-block;
+            margin: 10px 0 0 5px;
+            vertical-align: top;
+        }
+        #main-newsstand-animation {
+            padding-left: 25px;
+            position: relative; /*아래 ::before의 position 기준이 됨*/
+            display: flex; /*a 태그간 불필요한 여백 제거*/
+        }
+        #main-newsstand-animation > a:first-of-type::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            width: 1px;
+            height: 12px;
+        }
+        #main-newsstand-animation > a:first-of-type {
+            vertical-align: top;
+            line-height: 26px;
+        }
+        #main-shopping-animaion > a {
+            line-height: 21px;
+        }
+        #main-newsstand-animation > a:first-of-type::after,
+        #main-shopping-gray .left > a:first-of-type::after {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 12px 6px 0 6px;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+        #main-newsstand-animation > a:nth-of-type(2) {
+            display: inline-block;
+            text-overflow: ellipsis; /*숨김처리 부분 '...' 처리*/
+            white-space: nowrap; /*접히지 않도록*/
+            width: 400px; /*보여질 글자 길이 설정*/
+            overflow: hidden; /*보여질 글자 길이 이외는 숨김처리*/
+        }
+        #main-newsstand-gray .right {
+            display: flex;
+        }
+        #main-newsstand-gray .right > a:last-of-type::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 12px;
+            width: 1px;
+            height: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+        }
+        #main-newsstand-gray .right > a:last-of-type {
+            padding-left: 25px;
+            position: relative;
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        .left-section a {
+            text-decoration: none;
+        }
+        .left-section a:visited {
+            color: inherit;
+        }
+        .left-section a:hover {
+            text-decoration: underline;
+        }
+        #main-newsstand-grid {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            /*
+            grid-template-rows: 56px 56px 56px 56px;
+            grid-template-columns: 131.39px 131.39px 131.39px 131.39px 131.39px 131.39px;
+            이렇게 하나하나 값을 지정해도 되지만~,
+            */
+            width: 790px;
+            grid-template-columns: repeat(6, 1fr);
+            height: 223.33px;
+            grid-template-rows: repeat(4, 1fr);
+            /*전체 가로,세로 길이를 주고 비율로 지정하는 방법도 가능!*/
+            border: 1px solid var(--color_border_in);
+            border-radius: 4px;
+            margin: 18px 20px 18px 20px;
+            /*grid 내부 border 설정하기*/
+            grid-gap: 1px;
+            background-color: var(--color_border_in);
+        }
+        #main-newsstand-grid > div {
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-section footer {
+            padding: 10px 0px 11px;
+            border-top: 1px solid var(--color_border_in);
+            font-size: 1.3rem;
+            line-height: 35px;
+            font-weight: 600;
+            color: var(--color_caption2);
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        #main-newsstand footer .list, #main-newsstand footer .grid {
+            position: absolute;
+            border: none;
+            cursor: pointer;
+            top: 0px;
+            background-color: transparent; /*투명 설정*/
+        }
+        #main-newsstand footer .list {
+            right: 49px;
+            padding: 18px 9px 18px 20px;
+        }
+        #main-newsstand footer .list::before {
+            content: "";
+            display: inline-block;
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-position: -213px -373px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        #main-newsstand footer .list:hover::before {
+            background-position: -192.5px -373px;
+        }
+        #main-newsstand footer .grid {
+            right: 0px;
+            padding: 18px 20px 18px 9px;
+        }
+        #main-newsstand footer .grid::before {
+            content: "";
+            display: inline-block;
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-position: -391px -400px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        #main-newsstand footer .grid:hover::before {
+            background-position: -370.5px -400px;
+        }
+        .left-section footer .prev, .left-section footer .next {
+            content: "";
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--color_button_border);
+            background-color: var(--color_button1_bg);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-section footer .prev::before, .left-section footer .next::before {
+            content: "";
+            display: block;
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-position: -441px -103px;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 12px;
+            margin: auto;
+        }
+        .left-section footer .prev::before {
+            transform: rotate(180deg);
+        }
+        .left-section footer .text {
+            padding: 0 16px;
+            width: 156px;
+        }
+        /*id(#)는 "배치순서와 상관없이" class(.)보다 높은 우선순위를 가짐*/
+        #main-shopping footer .text {
+            width: 176px;
+        }
+        .left-section footer .item {
+            color: #9858f5;
+        }
+        #main-newsstand footer .news {
+            color: var(--color_news);
+        }
+        .left-section footer .total {
+            color: rgba(96, 96, 96, .5);
+        }
     </style>
 </head>
 <body>
@@ -506,400 +913,10 @@
                     </li>
                 </ul>
             </nav>
-            <style>
-                #main {
-                    margin-top: 22px;
-                    display: flex;
-                }
-                #main-left {
-                    width: 830px;
-                    margin-right: 30px;
-                }
-                #main-right {
-                    width: 420px;
-                }
-                aside[id$=ad] {
-                    /*aside id가 ad로 끝나는 태그에 모두 적용!*/
-                    border-radius: 8px;
-                    background: gray;
-                    margin-bottom: 16px;
-                }
-                #main-left-ad{
-                    height: 130px;
-                }
-                section[id^=main] {
-                    /*section id가 main으로 시작하는 태그에 모두 적용!*/
-                    box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, .04);
-                    border-radius: 8px;
-                    margin-bottom: 16px;
-                }
-                #main-shopping {
-                    height: 560px;
-                }
-                #main-login {
-                    height: 164px;
-                    padding: 21px 20px 18px;
-                    font-size: 1.4rem;
-                    display: flex;
-                    flex-flow: column;
-                }
-                #main-login-button {
-                    margin-top: 13px;
-                    padding: 17px 0;
-                    background-color: #03c75a;
-                    color: white;
-                    height: 56px;
-                    border: 1px solid rgba(0, 0, 0, .06);
-                    border-radius: 4px;
-                    text-decoration: none;
-                    margin-bottom: 16px;
-                }
-                #main-login-button i {
-                    background-image: url(./sp_main.png);
-                    background-size: 452px 436px;
-                    background-position: 1px -298px;
-                    background-repeat: no-repeat;
-                    width: 72px;
-                    height: 15px;
-                    display: inline-block;
-                    margin: 3px 8px 0 0;
-                    vertical-align: -2px;
-                }
-                #main-login > div:first-of-type {
-                    line-height: 20px; /*line-height가 곧 content-height가 됨*/
-                }
-                #main-login > div:last-of-type {
-                    font-size: 1.3rem;
-                    display: flex;
-                    justify-content: center;
-                }
-                #main-login > div:last-of-type a {
-                    text-decoration: none;
-                    color: var(--color_caption2);
-                    letter-spacing: -0.4px;
-                }
-                #main-login > div:last-of-type a:first-of-type,
-                #main-login > div:last-of-type a:last-of-type {
-                    position: relative;
-                    top: 6px;
-                }
-                #main-login > div:last-of-type a:hover {
-                    text-decoration: underline;
-                }
-                #main-login > div:last-of-type > a:nth-of-type(2)::before,
-                #main-login > div:last-of-type > a:nth-of-type(2)::after {
-                    content: "";
-                    display: inline-block;
-                    width: 1px;
-                    height: 12px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                    margin: 4px 12px 0;
-                }
-                #main-right-ad {
-                    height: 240px;
-                }
-                #main-mini-ad {
-                    height: 80px;
-                }
-                .main-weather-and-stock {
-                    padding: 0 18px;
-                }
-                .main-weather-and-stock > header {
-                    height: 52px;
-                    padding: 6px 0px;
-                }
-                .main-weather-and-stock > div {
-                    border-top: 1px solid var(--color_border_in);
-                }
-                #main-weather {
-                    height: 236px;
-                }
-                #main-stock {
-                    height: 236px;
-                }
-                #main-newsstand {
-                    height: 426px;
-                    display: flex;
-                    flex-flow: column;
-                }
-                #main-newsstand-top {
-                    flex: 1; /*최대 영역 차지하도록 함*/
-                    /*padding: 18px 20px 17px; -> 제로초가 쓴 것*/
-                }
-                #main-newsstand-top .dot::before {
-                    content: "";
-                    display: inline-block;
-                    width: 4px;
-                    height: 4px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                    margin: 9px 7px 0;
-                    border-radius: 50%; /*원 생성*/
-                    vertical-align: top;
-                }
-                #main-newsstand-top .dot, #main-newsstand-top .slash {
-                    color: rgba(8, 8, 8, .5);
-                    font-weight: 800;
-                }
-                #main-newsstand-top .slash {
-                    position: relative;
-                    padding-left: 26px;
-                }
-                #main-newsstand-top .slash::before {
-                    content: "";
-                    display: inline-block;
-                    position: absolute; /*position:static이 아닌 부모 태그 필요 => a태그 이용*/
-                    top: 4px;
-                    left: 13px;
-                    width: 1px;
-                    height: 15px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                    /*
-                    vendor-prefix => 다른 브라우저 호환성 고려
-                    -webkit-transform: skewX(-15deg);
-                    -ms-transform: skewX(-15deg);
-                    */
-                    transform: skewX(-15deg);
-                }
-                #main-newsstand header {
-                    font-size: 1.6rem;
-                    color: rgba(8, 8, 8, .5);
-                    display: flex;
-                    justify-content: flex-start;
-                    padding: 18px 20px 17px; /*내가 쓴 것*/
-                    line-height: 23px;
-                }
-                #main-newsstand header .bold {
-                    /*class name 전 한칸 스페이스 주의!*/
-                    font-weight: bold;
-                    color: black;
-                }
-                #main-newsstand-gray {
-                    margin: 0 20px;
-                    padding: 12px 20px;
-                    display: flex;
-                    justify-content: flex-start;
-                    background-color: var(--color_option_bg);
-                    border-radius: 4px;
-                    line-height: 26px;
-                    font-size: 1.4rem;
-                    height: 50px;
-                }
-                #main-newsstand-gray .left {
-                    display: flex;
-                    flex: 1;
-                }
-                #main-newsstand-gray .left > a:first-of-type {
-                    /*
-                    '>'있어야 직속 자식에게 적용가능.
-                    없으면 main-newsstand-animation a에게도 적용됨.
-                    */
-                    width: 85.5px;
-                }
-                #main-newsstand-gray .left > a:first-of-type::after {
-                    content: "";
-                    background-image: url(./sp_main.png);
-                    background-size: 452px 436px;
-                    background-position: -236px -182px;
-                    background-repeat: no-repeat;
-                    width: 9px;
-                    height: 6px;
-                    display: inline-block;
-                    margin: 10px 0 0 5px;
-                    vertical-align: top;
-                }
-                #main-newsstand-animation {
-                    padding-left: 25px;
-                    position: relative; /*아래 ::before의 position 기준이 됨*/
-                    display: flex; /*a 태그간 불필요한 여백 제거*/
-                }
-                #main-newsstand-animation > a:first-of-type::before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: 7px;
-                    left: 12px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                    width: 1px;
-                    height: 12px;
-                }
-                #main-newsstand-animation > a:first-of-type {
-                    vertical-align: top;
-                    line-height: 26px;
-                }
-                #main-newsstand-animation > a:first-of-type::after {
-                    content: "";
-                    display: inline-block;
-                    width: 3px;
-                    height: 3px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                    margin: 12px 6px 0 6px;
-                    border-radius: 50%;
-                    vertical-align: top;
-                }
-                #main-newsstand-animation > a:nth-of-type(2) {
-                    display: inline-block;
-                    text-overflow: ellipsis; /*숨김처리 부분 '...' 처리*/
-                    white-space: nowrap; /*접히지 않도록*/
-                    width: 400px; /*보여질 글자 길이 설정*/
-                    overflow: hidden; /*보여질 글자 길이 이외는 숨김처리*/
-                }
-                #main-newsstand-gray .right {
-                    display: flex;
-                }
-                #main-newsstand-gray .right > a:last-of-type::before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: 7px;
-                    left: 12px;
-                    width: 1px;
-                    height: 12px;
-                    background-color: #d3d5d7;
-                    background-color: var(--color_dot_divider);
-                }
-                #main-newsstand-gray .right > a:last-of-type {
-                    padding-left: 25px;
-                    position: relative;
-                    display: inline-block;
-                    font-weight: bold;
-                    vertical-align: top;
-                }
-                #main-newsstand a {
-                    text-decoration: none;
-                }
-                #main-newsstand a:visited {
-                    color: inherit;
-                }
-                #main-newsstand a:hover {
-                    text-decoration: underline;
-                }
-                #main-newsstand-grid {
-                    display: grid;
-                    justify-content: center;
-                    align-items: center;
-                    /*
-                    grid-template-rows: 56px 56px 56px 56px;
-                    grid-template-columns: 131.39px 131.39px 131.39px 131.39px 131.39px 131.39px;
-                    이렇게 하나하나 값을 지정해도 되지만~,
-                    */
-                    width: 790px;
-                    grid-template-columns: repeat(6, 1fr);
-                    height: 223.33px;
-                    grid-template-rows: repeat(4, 1fr);
-                    /*전체 가로,세로 길이를 주고 비율로 지정하는 방법도 가능!*/
-                    border: 1px solid var(--color_border_in);
-                    border-radius: 4px;
-                    margin: 18px 20px 18px 20px;
-                    /*grid 내부 border 설정하기*/
-                    grid-gap: 1px;
-                    background-color: var(--color_border_in);
-                }
-                #main-newsstand-grid > div {
-                    height: 100%;
-                    background-color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                #main-newsstand footer {
-                    padding: 10px 0px 11px;
-                    border-top: 1px solid var(--color_border_in);
-                    font-size: 1.3rem;
-                    line-height: 35px;
-                    font-weight: 600;
-                    color: var(--color_caption2);
-                    display: flex;
-                    justify-content: center;
-                    position: relative;
-                }
-                #main-newsstand footer .list, #main-newsstand footer .grid {
-                    position: absolute;
-                    border: none;
-                    cursor: pointer;
-                    top: 0px;
-                    background-color: transparent; /*투명 설정*/
-                }
-                #main-newsstand footer .list {
-                    right: 49px;
-                    padding: 18px 9px 18px 20px;
-                }
-                #main-newsstand footer .list::before {
-                    content: "";
-                    display: inline-block;
-                    background-image: url(./sp_main.png);
-                    background-size: 452px 436px;
-                    background-position: -213px -373px;
-                    background-repeat: no-repeat;
-                    width: 20px;
-                    height: 20px;
-                }
-                #main-newsstand footer .list:hover::before {
-                    background-position: -192.5px -373px;
-                }
-                #main-newsstand footer .grid {
-                    right: 0px;
-                    padding: 18px 20px 18px 9px;
-                }
-                #main-newsstand footer .grid::before {
-                    content: "";
-                    display: inline-block;
-                    background-image: url(./sp_main.png);
-                    background-size: 452px 436px;
-                    background-position: -391px -400px;
-                    background-repeat: no-repeat;
-                    width: 20px;
-                    height: 20px;
-                }
-                #main-newsstand footer .grid:hover::before {
-                    background-position: -370.5px -400px;
-                }
-                #main-newsstand footer .prev, #main-newsstand footer .next {
-                    content: "";
-                    width: 36px;
-                    height: 36px;
-                    border: 1px solid var(--color_button_border);
-                    background-color: var(--color_button1_bg);
-                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
-                    border-radius: 50%;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                #main-newsstand footer .prev::before, #main-newsstand footer .next::before {
-                    content: "";
-                    display: block;
-                    background-image: url(./sp_main.png);
-                    background-size: 452px 436px;
-                    background-position: -441px -103px;
-                    background-repeat: no-repeat;
-                    width: 10px;
-                    height: 12px;
-                    margin: auto;
-                }
-                #main-newsstand footer .prev::before {
-                    transform: rotate(180deg);
-                }
-                #main-newsstand footer .text {
-                    padding: 0 16px;
-                    width: 156px;
-                }
-                #main-newsstand footer .news {
-                    color: var(--color_news);
-                }
-                #main-newsstand footer .total {
-                    color: rgba(96, 96, 96, .5);
-                }
-            </style>
             <main id="main">
                 <div id="main-left">
                     <aside id="main-left-ad"></aside> <!--광고배너-->
-                    <section id="main-newsstand">
+                    <section id="main-newsstand" class="left-section">
                         <div id="main-newsstand-top">
                             <header>
                                 <a href="#" class="bold">뉴스스탠드</a>
@@ -923,31 +940,15 @@
                                 </div>
                             </div>
                             <div id="main-newsstand-grid">
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/up/2021/0824/nsd115034872.png" height="20" alt="중앙일보" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/029.png" height="20" alt="디지털타임스" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/422.png" height="20" alt="연합뉴스TV" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/076.png" height="20" alt="스포츠조선" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/018.png" height="20" alt="이데일리" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/044.png" height="20" alt="코리아헤럴드" class="news_logo">
-                                </div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/up/2021/0824/nsd115034872.png" height="20" alt="중앙일보" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/029.png" height="20" alt="디지털타임스" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/422.png" height="20" alt="연합뉴스TV" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/076.png" height="20" alt="스포츠조선" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/018.png" height="20" alt="이데일리" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/044.png" height="20" alt="코리아헤럴드" class="news_logo"></div>
                                 <!---->
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/up/2021/0420/nsd105139164.png" height="20" alt="머니투데이방송" class="news_logo">
-                                </div>
-                                <div>
-                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/016.png" height="20" alt="헤럴드경제" class="news_logo">
-                                </div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/up/2021/0420/nsd105139164.png" height="20" alt="머니투데이방송" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/016.png" height="20" alt="헤럴드경제" class="news_logo"></div>
                                 <div><img src="https://s.pstatic.net/static/newsstand/2019/logo/011.png" height="20" alt="서울경제" class="news_logo"></div>
                                 <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/809.png" height="20" alt="미디어펜" class="news_logo"></div>
                                 <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/022.png" height="20" alt="세계일보" class="news_logo"></div>
@@ -977,10 +978,58 @@
                             <button class="grid"><span class="blind">격자보기</span></button>
                         </footer>
                     </section>
-                    <section id="main-shopping">
-                        <header></header>
-                        <div></div>
-                        <footer></footer>
+                    <style>
+                        #main-shopping {
+                            height: 560px;
+                            display: flex;
+                            flex-flow: column;
+                        }
+                        #main-shopping-grid {
+                            height: 376px;
+                        }
+                        #main-shopping footer .ad {
+                            position: absolute;
+                            top: 18px;
+                            right: 20px;
+                            border: 1px solid var(--color_border_out);
+                            color: var(--color_caption2);
+                            background-color: white;
+                            width: 30px;
+                            border-radius: 4px;
+                            font-size: 1.2rem;
+                            line-height: 18px;
+                            text-align: center;
+                            cursor: text;
+                        }
+                    </style>
+                    <section id="main-shopping" class="left-section">
+                        <div id="main-shopping-top">
+                            <header>
+                                <a href="#" class="bold">쇼핑</a>
+                                <a href="#" class="slash">맨즈</a>
+                                <a href="#" class="slash">원쁠딜</a>
+                                <a href="#" class="slash">쇼핑라이브</a>
+                            </header>
+                            <div id="main-shopping-grid">
+                                
+                            </div>
+                            <div id="main-shopping-gray">
+                                <div class="left">
+                                    <a href="#">오늘의 혜택</a>
+                                    <div id="main-shopping-animation"> <!--동일한 애니메이션 적용되기 때문에 div로 묶어줌-->
+                                        <a href="#">패션플러스</a>
+                                        <a href="#">해피 홀리데이! 인기 주얼리 최대 60% 할인+최대 2,000원 쿠폰</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--가로선이 있기 때문에 구분함-->
+                        <footer>
+                            <button class="prev"><span class="blind">이전 페이지</span></button>
+                            <div class="text"><span class="item">쇼핑아이템</span> 더보기&nbsp;1<span class="total">/10</span></div>
+                            <!--'&nbsp;' => 스페이스와 동일한 기능-->
+                            <button class="next"><span class="blind">다음 페이지</span></button>
+                            <button class="ad"><span class>AD</span></button>
+                        </footer>
                     </section>
                 </div>
                 <div id="main-right">
