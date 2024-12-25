@@ -403,6 +403,7 @@
         }
         #main-left-ad{
             height: 130px;
+            overflow: hidden;
         }
         section[id^=main] {
             /*section id가 main으로 시작하는 태그에 모두 적용!*/
@@ -472,9 +473,11 @@
         }
         #main-right-ad {
             height: 240px;
+            overflow: hidden;
         }
         #main-mini-ad {
             height: 80px;
+            overflow: hidden;
         }
         .main-weather-and-stock {
             padding: 0 18px;
@@ -482,6 +485,15 @@
         .main-weather-and-stock > header {
             height: 52px;
             padding: 6px 0px;
+            position: relative;
+            display: flex;
+            padding: 6px 0;
+            line-height: 40px;
+            color: var(--color_title);
+            padding-right: 7px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            vertical-align: top;
         }
         .main-weather-and-stock > div {
             border-top: 1px solid var(--color_border_in);
@@ -782,7 +794,7 @@
         #main-shopping footer .text {
             width: 176px;
         }
-        .left-section footer .item {
+        .left-section footer .hot {
             color: #9858f5;
         }
         #main-newsstand footer .news {
@@ -915,7 +927,9 @@
             </nav>
             <main id="main">
                 <div id="main-left">
-                    <aside id="main-left-ad"></aside> <!--광고배너-->
+                    <aside id="main-left-ad">
+                        <img src="https://ssl.pstatic.net/melona/libs/1520/1520954/57472cc150acdd13491a_20241223170402285.jpg" width="830" height="130">
+                    </aside> <!--광고배너-->
                     <section id="main-newsstand" class="left-section">
                         <div id="main-newsstand-top">
                             <header>
@@ -989,18 +1003,77 @@
                             height: 376px;
                             display: grid;
                             /*grid-auto-flow: column;*/
-                            grid-template-rows: 88px 85px 173px;
-                            grid-template-columns: 248px 1fr 1fr 1fr 1fr 1fr;
+                            grid-template-rows: 88px 95px 186px;
+                            grid-template-columns: 260px 98px 98px 98px 98px 98px;
                             column-gap: 8px;
                         }
                         .item:nth-of-type(1) {
                             grid-row: 1;
                             grid-column: 1;
+                            padding: 9px 11px 4px 11px;
+                        }
+                        .item:nth-of-type(7) {
+                            margin-top: 12px;
+                            margin-bottom: 14px;
+                            padding: 9px;
+                            height: 73px;
+                        }
+                        .item:nth-of-type(8) {
+                            margin-bottom: 14px;
+                        }
+                        .item:nth-of-type(1), .item:nth-of-type(7),
+                        .item:nth-of-type(8) {
+                            margin-right: 12px;
+                        }
+                        .item:nth-of-type(1), .item:nth-of-type(7),
+                        .item:nth-of-type(8) > div:first-child {
+                            border-radius: 4px;
+                            background: rgba(245, 248, 251, .6);
+                            border: 1px solid rgba(0, 0, 0, .05);
+                        }
+                        .item:nth-of-type(8) > div:first-of-type {
+                            height: 146px;
+                            margin-bottom: 8px;
+                        }
+                        .item:nth-of-type(8) > div:last-of-type {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            margin-top: 8px;
+                            font-size: 1.3rem;
+                            line-height: 19px;
+                            text-align: center;
+                        }
+                        .item:nth-of-type(3), .item:nth-of-type(4),
+                        .item:nth-of-type(5), .item:nth-of-type(6),
+                        .item:nth-of-type(10), .item:nth-of-type(13),
+                        .item:nth-of-type(11), .item:nth-of-type(12),
+                        .item:nth-of-type(2), .item:nth-of-type(9) {
+                            margin-bottom: 10px;
                         }
                         .item:nth-of-type(2), .item:nth-of-type(3), 
                         .item:nth-of-type(4), .item:nth-of-type(5), 
                         .item:nth-of-type(6) {
                             grid-row: 1/3; /*1번째칸부터 3번째칸 '이전'까지 차지*/
+                        }
+                        #main-shopping-grid .item {
+                            font-size: 1.3rem;
+                            line-height: 19px;
+                            letter-spacing: -.4px;
+                        }
+                        #main-shopping-grid .item > .image {
+                            width: 98px;
+                            height: 126px;
+                            border-radius: 4px;
+                            background-color: gray;
+                            margin-bottom: 8px;
+                            overflow: hidden;
+                        }
+                        #main-shopping-grid .item > .big-ad {
+                            overflow: hidden;
+                        }
+                        #main-shopping-grid .item > .text {
+                            text-align: left;
                         }
                         #main-shopping footer .ad {
                             position: absolute;
@@ -1016,6 +1089,59 @@
                             text-align: center;
                             cursor: text;
                         }
+                        #main-shopping-top {
+                            position: relative;
+                        }
+                        #main-shopping-top .right {
+                            position: absolute;
+                            top: 4px;
+                            right: 20px;
+                            margin-left: auto;
+                            padding: 10px 0;
+                            display: flex;
+                            flex: 1;
+                        }
+                        #main-shopping-top .right .text {
+                            color: var(--color_caption2);
+                            display: inline-block;
+                            margin: 6px 9px 8px 0;
+                            font-size: 1.3rem;
+                            line-height: 16px;
+                            font-weight: 600;
+                            vertical-align: top;
+                        }
+                        #main-shopping-top .right .text .total {
+                            color: rgba(113, 113, 113, .6);
+                        }
+                        #main-shopping-top .right .prev, #main-shopping-top .right .next {
+                            width: 30px;
+                            height: 30px;
+                            position: relative;
+                            display: flex;
+                            border: 1px solid rgba(211, 213, 215, .8);
+                            vertical-align: top;
+                            cursor: pointer;
+                            border-radius: 4px 0 0 4px;
+                            background-color: white;
+                        }
+                        #main-shopping-top .right .next {
+                            border-radius: 0 4px 4px 0;
+                        }
+                        #main-shopping-top .right .prev::before,
+                        #main-shopping-top .right .next::before {
+                            content: "";
+                            display: block;
+                            background-image: url(./sp_main.png);
+                            background-size: 453px 436px;
+                            background-position: -441px -255.5px;
+                            background-repeat: no-repeat;
+                            width: 9px;
+                            height: 12px;
+                            margin: auto;
+                        }
+                        #main-shopping-top .right .prev::before {
+                            transform: rotate(180deg);
+                        }
                     </style>
                     <section id="main-shopping" class="left-section">
                         <div id="main-shopping-top">
@@ -1024,21 +1150,59 @@
                                 <a href="#" class="slash">맨즈</a>
                                 <a href="#" class="slash">원쁠딜</a>
                                 <a href="#" class="slash">쇼핑라이브</a>
+                                <div class="right">
+                                    <div class="text">1<span class="total">/10</span></div>
+                                    <button class="prev"><span class="blind">이전 페이지</span></button>
+                                    <button class="next"><span class="blind">다음 페이지</span></button>
+                                </div>
                             </header>
                             <div id="main-shopping-grid">
-                                <div class="item">1</div>
-                                <div class="item">2</div>
-                                <div class="item">3</div>
-                                <div class="item">4</div>
-                                <div class="item">5</div>
-                                <div class="item">6</div>
-                                <div class="item">7</div>
-                                <div class="item">8</div>
-                                <div class="item">9</div>
-                                <div class="item">10</div>
-                                <div class="item">11</div>
-                                <div class="item">12</div>
-                                <div class="item">13</div>
+                                <div class="item"></div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241218_16/39416cdd-fbf2-4039-9cf9-c04b3e720559.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241211_15/38dc39a9-da8e-4608-bcc3-c21ec8f682b0.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241224_22/14bce4f0-96d4-422c-a228-9788594a0334.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241204_7/d32f033c-b60e-47f7-a089-bee2fc65f26a.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241224_2/15091742-5a6c-4e6a-baee-74387b78037c.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item"></div>
+                                <div class="item">
+                                    <div class="big-ad"><img src="https://s.pstatic.net/shopping.phinf/20241218_7/4204217f-7c76-4794-abb7-1c18c095b694.jpg" width="248" height="146"></div>
+                                    <div>올해 감사한 마음을 담은 쇼핑 혜택!</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241217_20/ef317ae2-8e3d-4498-b8f2-edafe52b5f9d.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241203_17/298a631f-8ad0-4668-89ba-999287c19668.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241224_12/fa7e7a99-435b-4fc0-9212-58f16d2ffd6a.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20241119_13/6ee32f6a-6b4d-44d2-b1e1-fcbf8549964a.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
+                                <div class="item">
+                                    <div class="image"><img src="https://s.pstatic.net/shopping.phinf/20240722_26/27a3005e-c80d-457e-bf09-af042088fae0.jpg?type=f294_378" width="98" height="126"></div>
+                                    <div class="text">여행 짐싸기, 너무 쉽던데요?</div>
+                                </div>
                             </div>
                             <div id="main-shopping-gray">
                                 <div class="left">
@@ -1052,7 +1216,7 @@
                         </div> <!--가로선이 있기 때문에 구분함-->
                         <footer>
                             <button class="prev"><span class="blind">이전 페이지</span></button>
-                            <div class="text"><span class="item">쇼핑아이템</span> 더보기&nbsp;1<span class="total">/10</span></div>
+                            <div class="text"><span class="hot">쇼핑아이템</span> 더보기&nbsp;1<span class="total">/10</span></div>
                             <!--'&nbsp;' => 스페이스와 동일한 기능-->
                             <button class="next"><span class="blind">다음 페이지</span></button>
                             <button class="ad"><span class>AD</span></button>
@@ -1069,8 +1233,12 @@
                             <a href="#">회원가입</a>
                         </div>
                     </section>
-                    <aside id="main-right-ad"></aside>
-                    <aside id="main-mini-ad"></aside>
+                    <aside id="main-right-ad">
+                        <img src="https://ssl.pstatic.net/melona/libs/1519/1519254/1de30f0c090ffdcd7b5d_20241203140156883_4.jpg" width="420" height="240">
+                    </aside>
+                    <aside id="main-mini-ad">
+                        <img src="https://s.pstatic.net/static/www/mobile/edit/20241220_1095/upload_1734660025689XByNo.jpg" width="420" height="80">
+                    </aside>
                     <section id="main-weather" class="main-weather-and-stock">
                         <header>날씨</header>
                         <div></div>
