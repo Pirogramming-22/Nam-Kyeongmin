@@ -147,7 +147,7 @@
             left: -10px;
         }
         #header-hamburger > div {
-            background-position: -314px -168px;
+            background-position: -315px -168px;
         }
         #header-naverpay {
             top: 4px;
@@ -161,23 +161,23 @@
             /*idea:'다수결', CSS는 순차실행하기 때문에 특정 값 반영가능*/
         }
         #header-naverpay > div {
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             background-position: -248px -261px;
             background-size: 463px 442px;
         }
         #header-navertalk {
-            right: 91px;
+            right: 94px;
         }
         #header-navertalk:hover::before {
             left: 2px;
             top: 2px;
         }
         #header-navertalk > div {
-            width: 30px;
-            height: 30px;
-            background-position: -106px -331px;
-            background-size: 482px 458px;
+            width: 27px;
+            height: 28px;
+            background-position: -104px -331px;
+            background-size: 472px 457px;
         }
         #header-notice {
             right: 42px;
@@ -809,6 +809,91 @@
                 #main-newsstand footer {
                     padding: 10px 0px 11px;
                     border-top: 1px solid var(--color_border_in);
+                    font-size: 1.3rem;
+                    line-height: 35px;
+                    font-weight: 600;
+                    color: var(--color_caption2);
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                }
+                #main-newsstand footer .list, #main-newsstand footer .grid {
+                    position: absolute;
+                    border: none;
+                    cursor: pointer;
+                    top: 0px;
+                    background-color: transparent; /*투명 설정*/
+                }
+                #main-newsstand footer .list {
+                    right: 49px;
+                    padding: 18px 9px 18px 20px;
+                }
+                #main-newsstand footer .list::before {
+                    content: "";
+                    display: inline-block;
+                    background-image: url(./sp_main.png);
+                    background-size: 452px 436px;
+                    background-position: -213px -373px;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                }
+                #main-newsstand footer .list:hover::before {
+                    background-position: -192.5px -373px;
+                }
+                #main-newsstand footer .grid {
+                    right: 0px;
+                    padding: 18px 20px 18px 9px;
+                }
+                #main-newsstand footer .grid::before {
+                    content: "";
+                    display: inline-block;
+                    background-image: url(./sp_main.png);
+                    background-size: 452px 436px;
+                    background-position: -391px -400px;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                }
+                #main-newsstand footer .grid:hover::before {
+                    background-position: -370.5px -400px;
+                }
+                #main-newsstand footer .prev, #main-newsstand footer .next {
+                    content: "";
+                    width: 36px;
+                    height: 36px;
+                    border: 1px solid var(--color_button_border);
+                    background-color: var(--color_button1_bg);
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                #main-newsstand footer .prev::before, #main-newsstand footer .next::before {
+                    content: "";
+                    display: block;
+                    background-image: url(./sp_main.png);
+                    background-size: 452px 436px;
+                    background-position: -441px -103px;
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 12px;
+                    margin: auto;
+                }
+                #main-newsstand footer .prev::before {
+                    transform: rotate(180deg);
+                }
+                #main-newsstand footer .text {
+                    padding: 0 16px;
+                    width: 156px;
+                }
+                #main-newsstand footer .news {
+                    color: var(--color_news);
+                }
+                #main-newsstand footer .total {
+                    color: rgba(96, 96, 96, .5);
                 }
             </style>
             <main id="main">
@@ -838,41 +923,58 @@
                                 </div>
                             </div>
                             <div id="main-newsstand-grid">
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/up/2021/0824/nsd115034872.png" height="20" alt="중앙일보" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/029.png" height="20" alt="디지털타임스" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/422.png" height="20" alt="연합뉴스TV" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/076.png" height="20" alt="스포츠조선" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/018.png" height="20" alt="이데일리" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/044.png" height="20" alt="코리아헤럴드" class="news_logo">
+                                </div>
                                 <!---->
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/up/2021/0420/nsd105139164.png" height="20" alt="머니투데이방송" class="news_logo">
+                                </div>
+                                <div>
+                                    <img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/016.png" height="20" alt="헤럴드경제" class="news_logo">
+                                </div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2019/logo/011.png" height="20" alt="서울경제" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/809.png" height="20" alt="미디어펜" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/022.png" height="20" alt="세계일보" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/908.png" height="20" alt="국방일보" class="news_logo"></div>
                                 <!---->
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/930.png" height="20" alt="뉴스타파" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/135.png" height="20" alt="시사저널" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/057.png" height="20" alt="MBN" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/020.png" height="20" alt="동아일보" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/056.png" height="20" alt="KBS" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/052.png" height="20" alt="YTN" class="news_logo"></div>
                                 <!---->
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
-                                <div>언론사</div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/363.png" height="20" alt="동아사이언스" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/up/2020/0803/nsd20247547.png" height="20" alt="EBS" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/904.png" height="20" alt="JTBC" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/214.png" height="20" alt="MBC" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/984.png" height="20" alt="낚시춘추" class="news_logo"></div>
+                                <div><img src="https://s.pstatic.net/static/newsstand/2020/logo/light/0604/326.png" height="20" alt="KBS World" class="news_logo"></div>
                             </div>
                         </div> <!--가로선이 있기 때문에 구분함-->
                         <footer>
-                            <button><span class="blind">이전</span></button>
-                            <div>언론사 더보기1페이지전체/4</div>
-                            <button><span class="blind">다음</span></button>
-                            <button><span class="blind">목록보기</span></button>
-                            <button><span class="blind">격자보기</span></button>
+                            <button class="prev"><span class="blind">이전 페이지</span></button>
+                            <div class="text"><span class="news">언론사</span> 더보기&nbsp;1<span class="total">/4</span></div>
+                            <!--'&nbsp;' => 스페이스와 동일한 기능-->
+                            <button class="next"><span class="blind">다음 페이지</span></button>
+                            <button class="list"><span class="blind">목록보기</span></button>
+                            <button class="grid"><span class="blind">격자보기</span></button>
                         </footer>
                     </section>
                     <section id="main-shopping">
