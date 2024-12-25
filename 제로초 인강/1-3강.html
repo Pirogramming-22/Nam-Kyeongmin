@@ -251,9 +251,9 @@
         #search-keyboard::before {
             content: "";
             display: block;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-image: url(./sp_main.png);
             background-size: 452px 436px;
-            background-position: -148px -301px;
+            background-position: -144px -298px;
             background-repeat: no-repeat;
             width: 24px;
             height: 14px;
@@ -265,9 +265,9 @@
         #search-recent::before {
             content: "";
             display: block;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-image: url(./sp_main.png);
             background-size: 452px 436px;
-            background-position: -154px -211px;
+            background-position: -216px -183px;
             background-repeat: no-repeat;
             width: 10px;
             height: 6px;
@@ -276,16 +276,15 @@
             padding: 17px 27px 16px 10px;
         }
         #search-button > div {
-            background: #03c75a;
             width: 25px;
             height: 25px;
         }
         #search-button > div::before {
             content: "";
             display: block;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-image: url(./sp_main.png);
             background-size: 452px 436px;
-            background-position: -405px -79px;
+            background-position: -395px -77px;
             background-repeat: no-repeat;
             width: 25px;
             height: 25px;
@@ -319,9 +318,9 @@
             position: absolute;
             top: -1px;
             left: -3px;
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-image: url(./sp_main.png);
             background-size: 452px 436px;
-            background-position: -153px -142px;
+            background-position: -149px -141px;
             background-repeat: no-repeat;
             width: 50px;
             height: 50px;
@@ -331,7 +330,7 @@
             display: inline-block;
             position: relative;
             z-index: 1; /*z-index는 relative position과 사용!*/
-            background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+            background-image: url(./sp_main.png);
             background-size: 452px 436px;
             background-repeat: no-repeat;
             width: 40px;
@@ -349,35 +348,35 @@
             margin-left: 0px;
         }  
         #nav li:nth-of-type(1) a div::after {
-            background-position: -205px -219px;
+            background-position: -199px -217px;
         }
         #nav li:nth-of-type(2) a div::after{
             /*'카페'를 가르킴*/
-            background-position: -41px -219px;
+            background-position: -40px -217px;
         }
         #nav li:nth-of-type(3) a div::after{
-            background-position: 0px -219px;
+            background-position: 1px -217px;
         }
         #nav li:nth-of-type(4) a div::after{
-            background-position: -41px -260px;
+            background-position: -39px -258px;
         }
         #nav li:nth-of-type(5) a div::after{
-            background-position: -270px -205px;
+            background-position: -263px -203px;
         }
         #nav li:nth-of-type(6) a div::after{
-            background-position: -123px -260px;
+            background-position: -120px -258px;
         }
         #nav li:nth-of-type(7) a div::after{
-            background-position: 0px -260px;
+            background-position: 1px -258px;
         }
         #nav li:nth-of-type(8) a div::after{
-            background-position: -270px 0px;
+            background-position: -263px 0px;
         }
         #nav li:nth-of-type(9) a div::after{
-            background-position: -164px -260px;
+            background-position: -159px -258px;
         }
         #nav li:nth-of-type(10) a div::after{
-            background-position: -270px -164px;
+            background-position: -263px -163px;
         }
         /*nth-child() : 태그 종류 구분없이 순서 부여
         nth-of-type() : 태그 종류 구분 & 순서 부여*/
@@ -628,6 +627,42 @@
                     flex: 1; /*최대 영역 차지하도록 함*/
                     /*padding: 18px 20px 17px; -> 제로초가 쓴 것*/
                 }
+                #main-newsstand-top .dot::before {
+                    content: "";
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    margin: 9px 7px 0;
+                    border-radius: 50%; /*원 생성*/
+                    vertical-align: top;
+                }
+                #main-newsstand-top .dot, #main-newsstand-top .slash {
+                    color: rgba(8, 8, 8, .5);
+                    font-weight: 800;
+                }
+                #main-newsstand-top .slash {
+                    position: relative;
+                    padding-left: 26px;
+                }
+                #main-newsstand-top .slash::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute; /*position:static이 아닌 부모 태그 필요 => a태그 이용*/
+                    top: 4px;
+                    left: 13px;
+                    width: 1px;
+                    height: 15px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    /*
+                    vendor-prefix => 다른 브라우저 호환성 고려
+                    -webkit-transform: skewX(-15deg);
+                    -ms-transform: skewX(-15deg);
+                    */
+                    transform: skewX(-15deg);
+                }
                 #main-newsstand header {
                     font-size: 1.6rem;
                     color: rgba(8, 8, 8, .5);
@@ -649,6 +684,90 @@
                     background-color: var(--color_option_bg);
                     border-radius: 4px;
                     line-height: 26px;
+                    font-size: 1.4rem;
+                    height: 50px;
+                }
+                #main-newsstand-gray .left {
+                    display: flex;
+                    flex: 1;
+                }
+                #main-newsstand-gray .left > a:first-of-type {
+                    /*
+                    '>'있어야 직속 자식에게 적용가능.
+                    없으면 main-newsstand-animation a에게도 적용됨.
+                    */
+                    width: 85.5px;
+                }
+                #main-newsstand-gray .left > a:first-of-type::after {
+                    content: "";
+                    background-image: url(./sp_main.png);
+                    background-size: 452px 436px;
+                    background-position: -236px -182px;
+                    background-repeat: no-repeat;
+                    width: 9px;
+                    height: 6px;
+                    display: inline-block;
+                    margin: 10px 0 0 5px;
+                    vertical-align: top;
+                }
+                #main-newsstand-animation {
+                    padding-left: 25px;
+                    position: relative; /*아래 ::before의 position 기준이 됨*/
+                    display: flex; /*a 태그간 불필요한 여백 제거*/
+                }
+                #main-newsstand-animation > a:first-of-type::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 7px;
+                    left: 12px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    width: 1px;
+                    height: 12px;
+                }
+                #main-newsstand-animation > a:first-of-type {
+                    vertical-align: top;
+                    line-height: 26px;
+                }
+                #main-newsstand-animation > a:first-of-type::after {
+                    content: "";
+                    display: inline-block;
+                    width: 3px;
+                    height: 3px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    margin: 12px 6px 0 6px;
+                    border-radius: 50%;
+                    vertical-align: top;
+                }
+                #main-newsstand-animation > a:nth-of-type(2) {
+                    display: inline-block;
+                    text-overflow: ellipsis; /*숨김처리 부분 '...' 처리*/
+                    white-space: nowrap; /*접히지 않도록*/
+                    width: 400px; /*보여질 글자 길이 설정*/
+                    overflow: hidden; /*보여질 글자 길이 이외는 숨김처리*/
+                }
+                #main-newsstand-gray .right {
+                    display: flex;
+                }
+                #main-newsstand-gray .right > a:last-of-type::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 7px;
+                    left: 12px;
+                    width: 1px;
+                    height: 12px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                }
+                #main-newsstand-gray .right > a:last-of-type {
+                    padding-left: 25px;
+                    position: relative;
+                    display: inline-block;
+                    font-weight: bold;
+                    vertical-align: top;
                 }
                 #main-newsstand a {
                     text-decoration: none;
@@ -699,19 +818,21 @@
                         <div id="main-newsstand-top">
                             <header>
                                 <a href="#" class="bold">뉴스스탠드</a>
-                                <a href="#">언론사편집</a>
-                                <a href="#">엔터</a>
-                                <a href="#">스포츠</a>
-                                <a href="#">경제</a>
-                                <a href="#">쇼핑투데이</a>
+                                <a href="#" class="dot">언론사편집</a>
+                                <a href="#" class="slash">엔터</a>
+                                <a href="#" class="slash">스포츠</a>
+                                <a href="#" class="slash">경제</a>
+                                <a href="#" class="slash">쇼핑투데이</a>
                             </header>
                             <div id="main-newsstand-gray">
-                                <div>
+                                <div class="left">
                                     <a href="#">전체언론사</a>
-                                    <a href="#">연합뉴스</a>
-                                    <a href="#">[속보] 크리스마스 산타, 약 100년만에 실존하는 것으로 밝혀져 많은 이들에게 놀라움을</a>
+                                    <div id="main-newsstand-animation"> <!--동일한 애니메이션 적용되기 때문에 div로 묶어줌-->
+                                        <a href="#">연합뉴스</a>
+                                        <a href="#">[속보] 산타 할아버지, 약 100년만에 실존하는 것으로 밝혀져 많은 이들에게 놀라움을</a>
+                                    </div>
                                 </div>
-                                <div>
+                                <div class="right">
                                     <a href="#">뉴스스탠드</a>
                                     <a href="#">뉴스홈</a>
                                 </div>
