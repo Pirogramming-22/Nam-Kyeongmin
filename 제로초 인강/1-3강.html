@@ -534,9 +534,6 @@
                     border-radius: 8px;
                     margin-bottom: 16px;
                 }
-                #main-newsstand {
-                    height: 426px;
-                }
                 #main-shopping {
                     height: 560px;
                 }
@@ -622,12 +619,114 @@
                 #main-stock {
                     height: 236px;
                 }
+                #main-newsstand {
+                    height: 426px;
+                    display: flex;
+                    flex-flow: column;
+                }
+                #main-newsstand-top {
+                    flex: 1; /*최대 영역 차지하도록 함*/
+                    /*padding: 18px 20px 17px;*/
+                }
+                #main-newsstand header {
+                    font-size: 1.6rem;
+                    color: rgba(8, 8, 8, .5);
+                    display: flex;
+                    justify-content: flex-start;
+                    padding: 18px 20px 17px;
+                }
+                #main-newsstand header .bold {
+                    /*class name 전 한칸 스페이스 주의!*/
+                    font-weight: bold;
+                    color: black;
+                }
+                #main-newsstand a {
+                    text-decoration: none;
+                }
+                #main-newsstand a:visited {
+                    color: inherit;
+                }
+                #main-newsstand a:hover {
+                    text-decoration: underline;
+                }
+                #main-newsstand-gray {
+                    margin: 0 20px;
+                    padding: 12px 20px;
+                    display: flex;
+                    justify-content: flex-start;
+                }
+                #main-newsstand footer {
+                    padding: 10px 0px 11px;
+                    border-top: 1px solid var(--color_border_in);
+                }
             </style>
             <main id="main">
                 <div id="main-left">
                     <aside id="main-left-ad"></aside> <!--광고배너-->
-                    <section id="main-newsstand"></section>
-                    <section id="main-shopping"></section>
+                    <section id="main-newsstand">
+                        <div id="main-newsstand-top">
+                            <header>
+                                <a href="#" class="bold">뉴스스탠드</a>
+                                <a href="#">언론사편집</a>
+                                <a href="#">엔터</a>
+                                <a href="#">스포츠</a>
+                                <a href="#">경제</a>
+                                <a href="#">쇼핑투데이</a>
+                            </header>
+                            <div id="main-newsstand-gray">
+                                <div>
+                                    <a href="#">전체언론사</a>
+                                    <a href="#">연합뉴스</a>
+                                    <a href="#">[속보] 크리스마스 산타, 약 100년만에 실존하는 것으로 밝혀져 많은 이들에게 놀라움을</a>
+                                </div>
+                                <div>
+                                    <a href="#">뉴스스탠드</a>
+                                    <a href="#">뉴스홈</a>
+                                </div>
+                            </div>
+                            <div id="main-newsstand-grid">
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <!---->
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <!---->
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <!---->
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                                <div>언론사</div>
+                            </div>
+                        </div> <!--가로선이 있기 때문에 구분함-->
+                        <footer>
+                            <button><span class="blind">이전</span></button>
+                            <div>언론사 더보기1페이지전체/4</div>
+                            <button><span class="blind">다음</span></button>
+                            <button><span class="blind">목록보기</span></button>
+                            <button><span class="blind">격자보기</span></button>
+                        </footer>
+                    </section>
+                    <section id="main-shopping">
+                        <header></header>
+                        <div></div>
+                        <footer></footer>
+                    </section>
                 </div>
                 <div id="main-right">
                     <section id="main-login">
