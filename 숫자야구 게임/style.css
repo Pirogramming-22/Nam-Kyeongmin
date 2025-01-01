@@ -90,7 +90,7 @@ body {
 .check-result{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between; /* space-around 에서 space-between으로 변경 */
 }
 
 .left {
