@@ -29,11 +29,35 @@ function createHTMLString(item) {
     `;
 }
 
+// button 클릭(event) 감지
+function onButtonClick(event, items) {
+    const dataset = event.target.dataset;
+    const key = dataset.key;
+    const value = dataset.value;
+
+    if(key==null || value==null) {
+        return;
+        /* key or value 없을 때 함수 종료 */
+    }
+    /*
+    filter 작동 확인용
+    const filter = items.filter(item => item[key] === value);
+    console.log(filter);
+    */
+    displayItems(items.filter(item => item[key] === value));  
+}
+
+function setEventListeners(items) {
+    const logo = document.querySelector('.logo');
+    const buttons = document.querySelector('.buttons');
+    logo.addEventListener('click', () => displayItems(items));
+    buttons.addEventListener('click', event => onButtonClick(event, items));
+}
+
 // MAIN
 loadItems()
     .then(items => {
-        console.log(items);
         displayItems(items);
-        //setEventListeners(items);
+        setEventListeners(items);
     })
     .catch(console.log);
