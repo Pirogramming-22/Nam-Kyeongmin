@@ -1,6 +1,4 @@
-/* JSON: object와 유사 */
 {
-    /* items: object(key:value)를 담고 있는 배열 object */
     "items" : [
         {
         "type": "tshirt",
