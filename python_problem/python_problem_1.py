@@ -1,3 +1,6 @@
+import random as r
+import time as t
+
 num = 0
 class noneIntNum(Exception):
     def __init__(self):
@@ -11,34 +14,43 @@ gameTurn = True
 # True = computer, False = player
 
 def brGame(num, gameTurn):
-    try:
-        answer = input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :')
-        try:
-            aNum = int(answer)
-        except ValueError:
-            raise noneIntNum
-        
-        if (aNum!=1 and aNum!=2 and aNum!=3):
-            # aNum이 1,2,3의 숫자가 아니라면
-            raise outOfRange
-        else:
-            for i in range(1, aNum+1):
-                if(gameTurn):
-                    print('computer : {0}'.format(num+i))
-                    if(num+i == 31):
-                        return -1, gameTurn
-                else:
-                    print('player : {0}'.format(num+i))
-                    if(num+i == 31):
-                        return -1, gameTurn
-            num = num+aNum
+        if(gameTurn):
+            t.sleep(1)
+            # computer 차례
+            cNum = r.randint(1,3)
+            for i in range(1, cNum+1):
+                print('computer : {0}'.format(num+i))
+                if(num+i == 31):
+                    return -1, gameTurn
+            num = num+cNum
             gameTurn = not gameTurn # swith Comuter <=> PLayer turn
             return num, gameTurn
-    except outOfRange as e1:
-            print(e1)
-    except noneIntNum as e2:
-            print(e2)
-    return num, gameTurn
+        
+        else:
+            try:
+                # player 차례
+                answer = input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :')
+                try:
+                    aNum = int(answer)
+                except ValueError:
+                    raise noneIntNum
+                
+                if (aNum!=1 and aNum!=2 and aNum!=3):
+                    # aNum이 1,2,3의 숫자가 아니라면
+                    raise outOfRange
+                else:
+                    for i in range(1, aNum+1):
+                        print('player : {0}'.format(num+i))
+                        if(num+i == 31):
+                            return -1, gameTurn
+                    num = num+aNum
+                    gameTurn = not gameTurn # swith Comuter <=> PLayer turn
+                    return num, gameTurn
+            except outOfRange as e1:
+                    print(e1)
+            except noneIntNum as e2:
+                    print(e2)
+            return num, gameTurn
                         
 while(num < 31):
     num, gameTurn = brGame(num, gameTurn)
