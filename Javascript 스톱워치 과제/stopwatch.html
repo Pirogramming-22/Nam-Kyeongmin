@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+    <title>피로그래밍 스톱워치</title>
+</head>
+<body>
+    <script src="./index.js"></script>
+    <main id="page_container">
+        <section class="timer_container">
+            <span id="title">⏱️피로그래밍 스톱워치</span>
+            <div id="timer">
+                <div class="time">00:00</div>
+                <div class="button_container">
+                    <button class="buttons" id="start">start</button>
+                    <button class="buttons" id="stop">stop</button>
+                    <button class="buttons" id="reset">reset</button>
+                </div>
+            </div>
+        </section>
+        <section class="record_container">
+            <div id="record_navBar">
+                <input type="radio" class="select_record" id="select_all">
+                <div id="record_titile">구간 기록</div>
+                <div id="delete_record"></div>
+            </div>
+            <div id="record_list">
+                <div class="time_record">
+                    <input type="radio" class="select_record">
+                    <div class="time_for_record"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
