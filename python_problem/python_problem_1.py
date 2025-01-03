@@ -12,6 +12,10 @@ try:
     aNum = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) :'))
     if (aNum!=1 and aNum!=2 and aNum!=3):
         raise outOfRange
+    elif (isinstance(aNum, int)):
+        for i in range(1, aNum+1):
+            print('playerA : {0}'.format(num+i))
+        num = num+aNum
     else:
         # aNum이 정수가 아니라면
         raise noneIntNum    
