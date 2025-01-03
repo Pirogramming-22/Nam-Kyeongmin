@@ -8,7 +8,7 @@ class outOfRange(Exception):
         super().__init__('1,2,3 중 하나를 입력하세요')
 
 gameTurn = True
-# True = playerA, False = playerB
+# True = computer, False = player
 
 def brGame(num, gameTurn):
     try:
@@ -21,21 +21,18 @@ def brGame(num, gameTurn):
         if (aNum!=1 and aNum!=2 and aNum!=3):
             # aNum이 1,2,3의 숫자가 아니라면
             raise outOfRange
-        elif (not isinstance(aNum, int)):
-            # aNum이 정수가 아니라면
-            raise noneIntNum
         else:
             for i in range(1, aNum+1):
                 if(gameTurn):
-                    print('playerA : {0}'.format(num+i))
+                    print('computer : {0}'.format(num+i))
                     if(num+i == 31):
                         return -1, gameTurn
                 else:
-                    print('playerB : {0}'.format(num+i))
+                    print('player : {0}'.format(num+i))
                     if(num+i == 31):
                         return -1, gameTurn
             num = num+aNum
-            gameTurn = not gameTurn # swith player turn
+            gameTurn = not gameTurn # swith Comuter <=> PLayer turn
             return num, gameTurn
     except outOfRange as e1:
             print(e1)
@@ -47,9 +44,9 @@ while(num < 31):
     num, gameTurn = brGame(num, gameTurn)
     if(num==-1):
         if(gameTurn):
-            # 31을 외친 사람이 playerA인 경우
-            print('playerB win!')
+            # 31을 외친 사람이 computer인 경우
+            print('player win!')
         else:
-            # 31을 외친 사람이 playerB인 경우
-            print('playerA win!')
+            # 31을 외친 사람이 player인 경우
+            print('computer win!')
         break
