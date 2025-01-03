@@ -29,11 +29,11 @@ def brGame(num, gameTurn):
                 if(gameTurn):
                     print('playerA : {0}'.format(num+i))
                     if(num+i == 31):
-                        return
+                        return -1, gameTurn
                 else:
                     print('playerB : {0}'.format(num+i))
                     if(num+i == 31):
-                        return
+                        return -1, gameTurn
             num = num+aNum
             gameTurn = not gameTurn # swith player turn
             return num, gameTurn
@@ -46,4 +46,10 @@ def brGame(num, gameTurn):
 while(num < 31):
     num, gameTurn = brGame(num, gameTurn)
     if(num==-1):
+        if(gameTurn):
+            # 31을 외친 사람이 playerA인 경우
+            print('playerB win!')
+        else:
+            # 31을 외친 사람이 playerB인 경우
+            print('playerA win!')
         break
