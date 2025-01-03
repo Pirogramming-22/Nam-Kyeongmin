@@ -43,7 +43,7 @@
     text-align: center;
 }
 
-.time {
+#time {
     width: 100%;
     height: 100px;
     background-color: white;
@@ -118,7 +118,7 @@
 .time_record {
     display: flex;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 15px 20px;
 }
 
 .time_for_record {

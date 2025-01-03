@@ -8,12 +8,11 @@
     <title>피로그래밍 스톱워치</title>
 </head>
 <body>
-    <script src="./index.js"></script>
     <main id="page_container">
         <section class="timer_container">
             <span id="title">⏱️피로그래밍 스톱워치</span>
             <div id="timer">
-                <div class="time">00:00</div>
+                <div id="time">00:00</div>
                 <div class="button_container">
                     <button class="buttons" id="start">start</button>
                     <button class="buttons" id="stop">stop</button>
@@ -37,36 +36,9 @@
                 </div>
             </div>
             <div id="record_list">
-                <div class="time_record">
-                    <div class="select_record"><input type="radio">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                    </svg></div>
-                    <div class="time_for_record">00:00</div>
-                </div>
-                <div class="time_record">
-                    <div class="select_record"><input type="radio">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                    </svg></div>
-                    <div class="time_for_record">00:00</div>
-                </div>
-                <div class="time_record">
-                    <div class="select_record"><input type="radio">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                    </svg></div>
-                    <div class="time_for_record">00:00</div>
-                </div>
-                <div class="time_record">
-                    <div class="select_record"><input type="radio">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                    </svg></div>
-                    <div class="time_for_record">00:00</div>
-                </div>
             </div>
         </section>
     </main>
+    <script src="./index.js"></script>
 </body>
 </html>
