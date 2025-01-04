@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+#page_container {
+    width: calc(100vw - 40%);
+    height: calc(100vh - 30%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer_container {
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+    height: 20%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#timer {
+    width: 400px;
+    height: 250px;
+    background-color: skyblue;
+    border-radius: 12%;
+    padding: 40px;
+    box-shadow: 2px 2px 15px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#time {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.button_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons {
+    width: 70px;
+    height: 60px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.record_container {
+    margin-top: 20px;
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.record_container {
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border-radius: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    overflow: hidden;
+}
+
+#record_navBar {
+    width: 400px;
+    height: 50px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#record_title {
+    margin-block: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#select_all, #delete_record {
+    margin: 8px 20px 8px 15px;
+}
+
+#record_list {
+    width: 400px;
+    height: fit-content;
+    overflow-y: scroll;
+}
+
+.time_record {
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px 20px;
+}
+
+.time_for_record {
+    margin-left: 120px;
+    font-size:20px;
+    font-weight: 600;
+}
+
+#delete_record:hover > .trash{
+    fill: red;
+    transition: 200ms ease-in-out;
+}
+
+.select_record {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.select_record input[type="checkbox"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.select_record svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.select_record .check-circle {
+    display: none; /* 초기에는 숨김 */
+}
