@@ -141,6 +141,7 @@
 
 .select_record input[type="checkbox"] {
     position: absolute;
+    left: 0px;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -156,6 +157,6 @@
     height: 100%;
 }
 
-.select_record .check-circle {
-    display: none; /* 초기에는 숨김 */
+.behind {
+    display: none;
 }
