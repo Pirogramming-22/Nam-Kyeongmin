@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie reviews</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .bold {
+            font-weight: 700;
+            font-size: 25px;
+            text-decoration: none;
+        }
+        .info_color {
+            color: White;
+        }
+        .navBar_container {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            width: 100%%;
+            padding: 10px 25px;
+            border: 2px solid Gainsboro;
+            bottom: 0px;
+        }
+        .body {
+            width: 100vw;
+        }
+        .register_container {
+            width: 60%;
+            height: fit-content;
+            background-color: Gainsboro;
+            margin: 10px 300px;
+            border-radius: 5px;
+            position: absolute;
+        }
+        .register_header {
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+        }
+        .register_body {
+            padding: 40px 160px;
+        }
+        .field {
+            margin-bottom: 20px;
+        }
+        .summary {
+            display: flex;
+            flex-direction: column;
+        }
+        .save_review {
+            position: relative;
+            left: 600px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navBar_container bold">
+        <div class="page_name">myMoviereviews</div>
+        <button type="submit" class="add_review">Add a New review</button>
+    </header>
+    <div class="register_container">
+        <div class="register_header">
+            <p class="bold">Movie review 🍿</p>
+        </div>
+        <div class="register_body">
+            <form action="{% url 'review:review_update' review.pk %}" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="title">제목:</label>
+                    <input type="text" id="title" name="title" value={{ review.title }}>
+                </div>
+                <div class="field">
+                    <label for="release">개봉년도:</label>
+                    <input type="text" id="release" name="release" value={{ review.release }}>
+                </div>
+                <div class="field">
+                    <label for="genre">장르:</label>
+                    <input type="text" id="genre" name="genre" value={{ review.genre }}>
+                </div>
+                <div class="field">
+                    <label for="stars">별점:</label>
+                    <input type="text" id="stars" name="stars" value={{ review.stars }}>
+                </div>
+                <div class="field">
+                    <label for="running_time">러닝타임:</label>
+                    <input type="text" id="running_time" name="running_time" value={{ review.running_time }}>
+                </div>
+                <div class="field summary">
+                    <label for="summary">리뷰:</label>
+                    <textarea rows="10" id="summary" name="summary">{{ review.summary }}</textarea>
+                </div>
+                <div class="field">
+                    <label for="director">감독:</label>
+                    <input type="text" id="director" name="director" value={{ review.director }}>
+                </div>
+                <div class="field">
+                    <label for="actor">배우:</label>
+                    <input type="text" id="actor" name="actor" value={{ review.actor }}>
+                </div>
+                <button type="submit" class="save_review">Save</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
