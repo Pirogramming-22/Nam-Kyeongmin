@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'TTHakgyoansimMulgyeolB';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimMulgyeolB.woff2') format('woff2');
+            font-family: 'TTTtangsbudaejjigaeB';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
             font-weight: 700;
             font-style: normal;
         }
@@ -18,6 +18,44 @@
         * {
             box-sizing: border-box;
         }
+        .body {
+            width: 100vw;
+        }
+
+        .navBar_container {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            width: 100%;
+            padding: 10px 25px;
+            bottom: 0px;
+            background-color: PaleGoldenRod;
+        }
+        .page_name{
+            font-size: 25px;
+            color: black;
+            margin: 0px;
+            font-family: "Pacifico", serif;
+        }
+        .Purple {
+            color: Purple;
+        }
+        .add_review {
+            height: 40px;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: "Pacifico", serif;
+            color: darkgoldenrod;
+            border: 3px solid darkgoldenrod;
+            border-radius: 4px;
+            box-shadow: 2px 4px 5px gray;
+            transition: 0.2s ease-out 0s;
+        }
+        .add_review:hover {
+            color: white;
+            background-color: darkgoldenrod;
+        }
+
         .list_container {
             display: flex;
             align-items: center;
@@ -38,23 +76,84 @@
             flex-direction: column;
             justify-content: center;
             border-radius: 10px;
-            padding: 22px 18px;
+            padding: 0 18px 22px 18px;
             border: 3px groove palegoldenrod;
+            transition: 0.3s ease-out 0s;
+            position: relative;
+        }
+        .dot_1, .dot_2, .dot_3, .dot_4, .dot_5, .dot_6, .dot_7 {
+            position: absolute;
+            bottom: -10px;
+            right: 246px;
+            width: 22px;
+            height: 20px;
+            background-color: indigo;
+            border-top: 4px groove palegoldenrod;
+            border-radius: 50%;
+        }
+        .dot_2 {
+            right: 206px;
+        }
+        .dot_3 {
+            right: 166px;
+        }
+        .dot_4 {
+            right: 126px;
+        }
+        .dot_5 {
+            right: 86px;
+        }
+        .dot_6 {
+            right: 46px;
+        }
+        .dot_7 {
+            right: 6px;
+        }
+
+        .review_card:hover {
+            transform: scale(1.05,1.05);
+            background-color: palegoldenrod;
+        }
+        .review_card:hover .divide, .review_card:hover .movie_info, .review_card:hover .bold {
+            color: indigo;
+            border-color: indigo;
+        }
+
+        .movie_ticket {
+            font-family: "Pacifico", serif;
+            color: White;
+            margin-inline: 10%;
+            background-color: indigo;
+            width: 80%;
+            padding-top: 4px;
+            padding-inline: 10%;
+            height: 40px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
         }
         .movie_img {
             width: 200px;
             height: 270px;
             margin: 20px;
-            border: 8px ridge DarkGoldenRod;
+            border: 9px ridge DarkGoldenRod;
+            border-radius: 3px;
         }
         .movie_img > img {
             width: 100%;
             height: 100%;
         }
+        .divide {
+            border-top: 2px dotted palegoldenrod;
+            border-width: 6px;
+            margin-bottom: 20px;
+            width: 64%;
+            margin-inline: 18%;
+        }
         .movie_info {
             display: flex;
             flex-direction: column;
-            font-family: 'TTHakgyoansimMulgyeolB';
+            font-family: 'TTTtangsbudaejjigaeB';
+            color: White;
         }
         .movie_info > p {
             margin: 10px;
@@ -65,36 +164,16 @@
             text-decoration: none;
             color: white;
             margin: 10px;
+            transition: 0.2s ease-in;
         }
-        .info_color {
-            color: White;
-        }
-        .navBar_container {
-            display: flex;
-            justify-content: space-between;
-            height: 60px;
-            width: 100%;
-            padding: 10px 25px;
-            bottom: 0px;
-            background-color: PaleGoldenRod;
-        }
-        .body {
-            width: 100vw;
-        }
-        .page_name{
-            font-size: 25px;
-            color: black;
-            margin: 0px;
-            font-family: "Pacifico", serif;
-        }
-        .Purple {
-            color: Purple;
+        .review_card:hover .bold:hover {
+            color: darkgoldenrod;
         }
     </style>
 </head>
 <body>
     <header class="navBar_container">
-        <div class="page_name bold">my<span class="Purple">Movie</span>reviews</div>
+        <div class="page_name">my<span class="Purple">Movie</span>reviews</div>
         <a href="{% url 'review:review_create' %}">
             <button type="submit" class="add_review">Add a New review</button>
         </a>
@@ -103,13 +182,22 @@
         <div class="review_list">
             {% for review in reviews %}
             <div class="review_card">
+                <div class="movie_ticket">MOVIE -TICKET</div>
                 <div class="movie_img"><img src="{{ review.poster.url }}"></div>
-                <div class="movie_info info_color">
-                    <a href="{% url 'review:review_detail' review.pk %}" class="bold movie_title">{{review.title}}</a>
+                <div class="divide"></div>
+                <div class="movie_info">
+                    <a href="{% url 'review:review_detail' review.pk %}" class="bold">{{review.title}}</a>
                     <p>{{review.release}}</p>
                     <p>{{review.genre}}</p>
                     <p>{{review.stars}}</p>
                 </div>
+                <div class="dot_1"></div>
+                <div class="dot_2"></div>
+                <div class="dot_3"></div>
+                <div class="dot_4"></div>
+                <div class="dot_5"></div>
+                <div class="dot_6"></div>
+                <div class="dot_7"></div>
             </div>
             {% endfor %}
         </div>

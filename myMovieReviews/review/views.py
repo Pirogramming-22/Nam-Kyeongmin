@@ -35,6 +35,7 @@ def review_create(request):
 def review_update(request, pk):
     exist_review = Review.objects.get(id=pk)
     if request.method == 'POST':
+        poster = request.FILES.get('poster') or exist_review.poster
         title = request.POST.get('title')
         release = request.POST.get('release')
         genre = request.POST.get('genre')
@@ -43,6 +44,7 @@ def review_update(request, pk):
         actor = request.POST.get('actor')
         running_time = request.POST.get('running_time')
         summary = request.POST.get('summary')
+        exist_review.poster = poster
         exist_review.title = title
         exist_review.release = release
         exist_review.genre = genre
