@@ -19,6 +19,7 @@ def review_detail(request, pk):
 def review_create(request):
     if request.method == 'POST':
         review = Review.objects.create(
+            poster = request.FILES['poster'],
             title = request.POST['title'],
             release = request.POST['release'],
             genre = request.POST['genre'],

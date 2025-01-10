@@ -3,14 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/NanumDaHaengCe.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <title>My Movie reviews</title>
         <style>
+            @font-face {
+                font-family: 'TTHakgyoansimMulgyeolB';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimMulgyeolB.woff2') format('woff2');
+                font-weight: 700;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: '양진체';
+                src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
             * {
                 box-sizing: border-box;
             }
             .bold {
-                font-weight: 700;
                 font-size: 25px;
+            }
+            .movie_title {
+                font-size: 35px;
+                font-family: 'TTHakgyoansimMulgyeolB';
+                color: white;
             }
             .info_color {
                 color: White;
@@ -21,8 +42,8 @@
                 height: 60px;
                 width: 100%%;
                 padding: 10px 25px;
-                border: 2px solid Gainsboro;
                 bottom: 0px;
+                background-color: PaleGoldenRod;
             }
             .body {
                 width: 100vw;
@@ -31,9 +52,12 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin-inline: 15px;
             }
             .review_container {
                 padding: 5px 30px;
+                background-color: BlueViolet;
+                height: 100vh;
             }
             .review_content {
                 display: flex;
@@ -41,8 +65,15 @@
                 gap: 20px;
             }
             .more_info, .about_movie {
-                background-color: #f3f3f3;
+                background-color: Lavender;
                 padding: 18px;
+                border-radius: 8px;
+            }
+            .more_info {
+                font-family: 'NanumDaHaengCe';
+                font-weight: 700;
+                font-size: 22px;
+                padding-block: 36px;
             }
             .about_movie {
                 display: flex;
@@ -51,28 +82,46 @@
                 display: flex;
                 flex-direction: column;
                 margin-left: 20px;
+                margin-top: 20px;
             }
             .movie_info > p {
-                margin: 8px;
+                margin-bottom: 10px;
+                font-family: '양진체';
             }
             .page_name, .page_name:visited {
                 text-decoration: none;
                 color: black;
+                font-family: "Pacifico", serif;
             }
             .button {
                 display: flex;
                 gap: 5px;
             }
+            .movie_img {
+                width: 200px;
+                height: 270px;
+                margin: 20px;
+                border: 8px ridge DarkGoldenRod;
+            }
+            .movie_img > img {
+                width: 100%;
+                height: 100%;
+            }
+            .Purple {
+                color: Purple;
+            }
         </style>
     </head>
     <body>
-        <header class="navBar_container bold">
-            <a href="{% url 'review:review_list' %}" class="page_name">my Movie reviews</a>
-            <button type="submit" class="add_review">Add a New review</button>
+        <header class="navBar_container">
+            <a href="{% url 'review:review_list' %}" class="page_name bold">my<span class="Purple">Movie</span>reviews</a>
+            <a href="{% url 'review:review_create' %}">
+                <button type="submit" class="add_review">Add a New review</button>
+            </a>
         </header>
         <div class="review_container">
             <div class="review_title">
-                <p href="{% url 'review:review_detail' review.pk %}" class="bold">{{review.title}}</p>
+                <p href="{% url 'review:review_detail' review.pk %}" class="movie_title">📽️ {{review.title}}</p>
                 <div class="button">
                     <form action="{% url 'review:review_update' review.pk %}">
                         {% csrf_token %}
@@ -86,7 +135,7 @@
             </div>
             <div class="review_content">
                 <div class="about_movie">
-                    <div class="movie_img">영화사진</div>
+                    <div class="movie_img"><img src="{{review.poster.url}}"></div>
                     <div class="movie_info">
                         <p>개봉년도 {{review.release}}</p>
                         <p>감독 {{review.director}}</p>
@@ -96,7 +145,7 @@
                         <p>러닝타임 {{review.running_time}}</p>
                     </div>
                 </div>
-                <div class="more_info">{{review.summary}}</div>
+                <div class="more_info">✍️ {{review.summary}}</div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
