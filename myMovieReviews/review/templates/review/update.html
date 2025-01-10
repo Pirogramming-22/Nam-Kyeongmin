@@ -52,7 +52,7 @@
             font-family: "Pacifico", serif;
             color: darkgoldenrod;
             border: 3px solid darkgoldenrod;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 2px 4px 5px gray;
             transition: 0.2s ease-out 0s;
         }
@@ -62,7 +62,7 @@
             font-size: 20px;
             font-weight: 500;
             border: 3px solid purple;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 2px 4px 4px RebeccaPurple;
             transition: 0.2s ease-out 0s;
             color: purple;
@@ -151,7 +151,7 @@
                 </div>
                 <div class="field">
                     <label for="genre">장르:</label>
-                    <input type="text" id="genre" name="genre" value="{{review.genre}}">
+                    {{genre_form.genre}}
                 </div>
                 <div class="field">
                     <label for="stars">별점:</label>

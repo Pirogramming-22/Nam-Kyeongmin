@@ -58,7 +58,7 @@
                 font-family: "Pacifico", serif;
                 color: darkgoldenrod;
                 border: 3px solid darkgoldenrod;
-                border-radius: 4px;
+                border-radius: 8px;
                 box-shadow: 2px 4px 5px gray;
                 transition: 0.2s ease-out 0s;
             }
@@ -93,7 +93,7 @@
                 font-weight: 500;
                 font-family: 'TTTtangsbudaejjigaeB';
                 border: 3px solid purple;
-                border-radius: 4px;
+                border-radius: 8px;
                 box-shadow: 2px 4px 4px RebeccaPurple;
                 transition: 0.2s ease-out 0s;
                 color: purple;
@@ -115,8 +115,10 @@
                 width: 200px;
                 height: 270px;
                 margin: 20px;
-                border: 9px ridge DarkGoldenRod;
-                border-radius: 3px;
+                border-block: 12px dashed black;
+                border-inline: 5px solid black;
+                background-color: white;
+                border-radius: 4px;
             }
             .movie_img > img {
                 width: 100%;
@@ -176,7 +178,7 @@
                         <p>개봉년도 | {{review.release}}</p>
                         <p>감독 | {{review.director}}</p>
                         <p>주연 | {{review.actor}}</p>
-                        <p>장르 | {{review.genre}}</p>
+                        <p>장르 | {{review.get_genre_display}}</p>
                         <p>별점 | {{review.stars}}</p>
                         <p>러닝타임 | {{review.running_time}}</p>
                     </div>

@@ -47,7 +47,7 @@
             font-family: "Pacifico", serif;
             color: darkgoldenrod;
             border: 3px solid darkgoldenrod;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 2px 4px 5px gray;
             transition: 0.2s ease-out 0s;
         }
@@ -67,7 +67,20 @@
         .review_list {
             display: flex;
             gap: 30px;
+            overflow-x: scroll;
+            overflow-y: clip;
+            height: 70%;
+            padding-top: 24px;
+            padding-inline: 30px;
         }
+        .review_list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .review_list::-webkit-scrollbar-thumb {
+            background: #b597f2;
+            border-radius: 10px;
+        }
+
         .review_card {
             width: 280px;
             height: fit-content;
@@ -135,8 +148,10 @@
             width: 200px;
             height: 270px;
             margin: 20px;
-            border: 9px ridge DarkGoldenRod;
-            border-radius: 3px;
+            border-block: 12px dashed black;
+            border-inline: 5px solid black;
+            background-color: white;
+            border-radius: 4px;
         }
         .movie_img > img {
             width: 100%;
@@ -160,11 +175,12 @@
             font-size: 16px;
         }
         .bold {
-            font-size: 28px;
             text-decoration: none;
             color: white;
             margin: 10px;
             transition: 0.2s ease-in;
+            height: 40px;
+            font-size: 1.4rem;
         }
         .review_card:hover .bold:hover {
             color: darkgoldenrod;
@@ -188,7 +204,7 @@
                 <div class="movie_info">
                     <a href="{% url 'review:review_detail' review.pk %}" class="bold">{{review.title}}</a>
                     <p>{{review.release}}</p>
-                    <p>{{review.genre}}</p>
+                    <p>{{review.get_genre_display}}</p>
                     <p>{{review.stars}}</p>
                 </div>
                 <div class="dot_1"></div>
