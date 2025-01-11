@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>My Movie reviews</title>
+    <style>
+        @font-face {
+            font-family: '양진체';
+            src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        .body {
+            width: 100vw;
+        }
+
+        .navBar_container {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            width: 100%;
+            padding: 10px 25px;
+            bottom: 0px;
+            background-color: PaleGoldenRod;
+        }
+        .page_name, .page_name:visited {
+            font-size: 25px;
+            color: black;
+            margin: 0px;
+            font-family: "Pacifico", serif;
+            text-decoration: none;
+            transition: 0.2s ease 0s;
+        }
+        .page_name:hover {
+            transform: scale(1.05, 1);
+        }
+        .Purple {
+            color: Purple;
+        }
+        .add_review, .save_review {
+            height: 40px;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: "Pacifico", serif;
+            color: darkgoldenrod;
+            border: 3px solid darkgoldenrod;
+            border-radius: 8px;
+            box-shadow: 2px 4px 5px gray;
+            transition: 0.2s ease-out 0s;
+        }
+        .add_review:hover, .save_review:hover {
+            color: white;
+            background-color: darkgoldenrod;
+        }
+
+        .background {
+            height:100vh;
+            width: 100%;
+            background-color: BlueViolet;
+        }
+        .register_container {
+            width: 60%;
+            height: fit-content;
+            background-color: Lavender;
+            margin: 18px 300px;
+            border-radius: 5px;
+            position: absolute;
+            padding: 30px;
+        }
+        .register_header {
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+        }
+        .bold {
+            font-weight: 700;
+            font-size: 25px;
+            font-family: '양진체';
+        }
+        .gold {
+            color: gold;
+            text-shadow: 2px 2px gray;
+        }
+        .register_body {
+            padding: 40px 160px;
+        }
+        .field {
+            margin-bottom: 20px;
+            font-family: '양진체';
+            font-size: 18px;
+        }
+        .summary {
+            display: flex;
+            flex-direction: column;
+        }
+        .save_review {
+            position: relative;
+            left: 600px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navBar_container">
+        <a href="{% url 'review:review_list' %}" class="page_name">my<span class="Purple">Movie</span>reviews</a>
+        <a href="{% url 'review:review_create' %}">
+            <button type="submit" class="add_review">Add a New review</button>
+        </a>
+    </header>
+    <div class="background">
+    <div class="register_container">
+        <div class="register_header">
+            <p class="bold">Upload my <span class="gold">new</span> Movie review 🍿</p>
+        </div>
+        <div class="register_body">
+            <form action="{% url 'review:review_create' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="poster">포스터:</label>
+                    <input type="file" id="poster" name="poster">
+                </div>
+                <div class="field">
+                    <label for="title">제목:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="field">
+                    <label for="release">개봉년도:</label>
+                    <input type="text" id="release" name="release">
+                </div>
+                <div class="field">
+                    <label for="genre">장르: {{genre_form.genre}}</label>
+                </div>
+                <div class="field">
+                    <label for="stars">별점:</label>
+                    <input type="text" id="stars" name="stars">
+                </div>
+                <div class="field">
+                    <label for="running_time">러닝타임:</label>
+                    <input type="text" id="running_time" name="running_time">
+                </div>
+                <div class="field summary">
+                    <label for="summary">리뷰:</label>
+                    <textarea rows="10" id="summary" name="summary"></textarea>
+                </div>
+                <div class="field">
+                    <label for="director">감독:</label>
+                    <input type="text" id="director" name="director">
+                </div>
+                <div class="field">
+                    <label for="actor">배우:</label>
+                    <input type="text" id="actor" name="actor">
+                </div>
+                <button type="submit" class="save_review">Save</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

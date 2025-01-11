@@ -31,6 +31,8 @@
 ### Week 3
 - 웹 스크랩핑 및 가상환경,Django 이론과 실습
 - [01/07 TUE] 1. Djangogirls 튜토리얼 학습
+- Django를 이용한 CRUD 실습과 DB 살펴보기
+- [01/09 THU] 1. Django를 이용한 myMovieReviews 웹사이트 구현 + 챌린지
 
 <br>
 
