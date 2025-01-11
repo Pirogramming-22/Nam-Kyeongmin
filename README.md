@@ -33,6 +33,9 @@
 - [01/07 TUE] 1. Djangogirls 튜토리얼 학습
 - Django를 이용한 CRUD 실습과 DB 살펴보기
 - [01/09 THU] 1. Django를 이용한 myMovieReviews 웹사이트 구현 + 챌린지
+- Django를 이용한 user-model custom과 ERD-cloud&MySQL로 알아보는 DB 개론
+- [01/11 SAT] 1. ERD cloud로 '피로마켓' ERD model 만들기
+- [01/11 SAT] 2. Ajax 선행강의(~초기페이지 구현(2/2) 까지) 학습
 
 <br>
 
