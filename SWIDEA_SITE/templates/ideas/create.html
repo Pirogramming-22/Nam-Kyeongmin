@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My SW-IDEA Site</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'ChosunGu';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            font-family: 'ChosunGu';
+            font-size: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding-block: 20px;
+            padding-inline: 80px;
+            border-bottom: 2px solid Gainsboro;
+        }
+        .left_nav_container{
+            font-weight: 700;
+            text-decoration: none;
+            color: black;
+        }
+        .green{
+            color: Turquoise;
+        }
+        .right_nav_container{
+            display: flex;
+            gap: 140px;
+        }
+        .nav_menu, .nav_menu:visited {
+            font-family: 'ChosunGu';
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        .under_navBar {
+            padding: 50px;
+            height: 100vh;
+            background-color: Tan;
+        }
+        .idea_list_container {
+            margin-inline: 10%;
+            padding: 50px;
+            padding-top: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100%;
+            background-color: Linen;
+            border-radius: 4px;
+            border-top: 23px dashed Tan;
+        }
+        .idea_list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .idea_list_intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .idea_list_title {
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .idea_list_intro_detail {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+        .idea_list_content {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
+        }
+        form {
+            width: 100%;
+        }
+        .idea_card {
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color:rgba(162, 255, 246, 0.5);
+            border-radius: 10px;
+            position: relative;
+        }
+        .idea_img {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+        .idea_title {
+            margin-top: 20px;
+        }
+        .idea_card_right {
+            margin-left: 30px;
+            width: 500px;
+            height: 80%;
+            padding-block: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            font-size: 18px;
+        }
+        .textarea {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .buttons{
+            position: absolute;
+            bottom: 40px;
+        }
+        .submit_btn {
+            background-color:rgb(44, 250, 226);
+            font-size: 20px;
+            font-family: 'ChosunGu';
+            font-weight: 700;
+            padding-inline: 14px;
+            padding-block: 10px;
+            border: 1px solid Gainsboro;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'ideas:idea_list' %}" class="left_nav_container">My <span class="green">SW Idea</span> Manage</a>
+        <div class="right_nav_container">
+            <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
+            <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
+            <a href="" class="nav_menu">개발툴 등록</a>
+            <a href="" class="nav_menu">개발툴 관리</a>
+        </div>
+    </header>
+    <div class="under_navBar">
+        <div class="idea_list_container">
+            <div class="idea_list">
+                <div class="idea_list_intro">
+                    <div class="idea_list_title">💡Idea Register✍️</div>
+                    <div class="idea_list_intro_detail">
+                        <p>아이디어 등록 페이지입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
+                    </div>
+                </div>
+                <div class="idea_list_content">
+                    <form action="{% url 'ideas:idea_create' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="idea_card">
+                            <div class="idea_card_right">
+                                <div class="field">
+                                    <label for="title">[1] 아이디어명: </label>
+                                    <input type="text" id="title" name="title">
+                                </div>
+                                <div class="field">
+                                    <label for="image">[2] image: </label>
+                                    <input type="file" id="image" name="image">
+                                </div>
+                                <div class="field textarea">
+                                    <label for="explain">[3] 아이디어 설명: </label>
+                                    <textarea rows="10" id="explain" name="explain"></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="interest">[4] 아이디어 관심도: </label>
+                                    <input type="text" id="interest" name="interest">
+                                </div>
+                                <div class="field">
+                                    <label for="develop_tool">[5] 예상 개발툴: </label>
+                                    <input type="text" id="develop_tool" name="develop_tool">
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="submit_btn">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
