@@ -170,31 +170,11 @@
                     </div>
                 </div>
                 <div class="idea_list_content">
-                    <form action="{% url 'ideas:idea_update' idea.pk %}" method="post" enctype="multipart/form-data">
+                    <form action="{% url 'ideas:idea_update' pk %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="idea_card">
                             <div class="idea_card_right">
-                                <div class="field">
-                                    <label for="title">[1] 아이디어명: </label>
-                                    <input type="text" id="title" name="title" value={{idea.title}}>
-                                </div>
-                                <div class="field image">
-                                    <label for="image">[2] image: </label>
-                                    <p>Currently: {{idea.image.name}}<input type="checkbox">Clear</p>
-                                    <p>Change: <input type="file" id="image" name="image" value={{idea.image.url}}>
-                                </div>
-                                <div class="field textarea">
-                                    <label for="explain">[3] 아이디어 설명: </label>
-                                    <textarea rows="10" id="explain" name="explain">{{idea.explain}}</textarea>
-                                </div>
-                                <div class="field">
-                                    <label for="interest">[4] 아이디어 관심도: </label>
-                                    <input type="text" id="interest" name="interest" value={{idea.interest}}>
-                                </div>
-                                <div class="field">
-                                    <label for="develop_tool">[5] 예상 개발툴: </label>
-                                    <input type="text" id="develop_tool" name="develop_tool" value={{idea.develop_tool}}>
-                                </div>
+                                {{form.as_p}}
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="submit_btn">SUBMIT</button>

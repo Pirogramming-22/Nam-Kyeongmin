@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Idea
+from .forms import IdeaForm
 
 def idea_list(request):
     how_to_order = request.GET.get('order')
@@ -18,43 +19,39 @@ def idea_list(request):
 def idea_detail(request, pk):
     idea = Idea.objects.get(id=pk)
     context = {
-        'idea': idea
+        'idea': idea,
     }
     return render(request, 'ideas/detail.html', context)
 
 def idea_create(request):
-    if request.method == 'POST':
-        idea = Idea.objects.create(
-            title = request.POST['title'],
-            image = request.FILES['image'],
-            explain = request.POST['explain'],
-            interest = request.POST['interest'],
-            develop_tool = request.POST['develop_tool'],
-        )
-        return redirect(reverse('ideas:idea_list'))
-    return render(request, 'ideas/create.html')
+    if request.method == 'GET':
+        form = IdeaForm()
+        context = {
+            'form': form 
+        }
+        return render(request, 'ideas/create.html', context)
+    else:
+        form = IdeaForm(request.POST, request.FILES)
+        if form.is_valid():
+            create_idea = form.save()
+        return redirect('ideas:idea_detail', pk=create_idea.pk)
+        
 
 def idea_update(request, pk):
-    exist_idea = Idea.objects.get(id=pk)
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        image = request.FILES.get('image') or exist_idea.image
-        explain = request.POST.get('explain')
-        interest = request.POST.get('interest')
-        develop_tool = request.POST.get('develop_tool')
-        
-        exist_idea.title=title
-        exist_idea.image=image
-        exist_idea.explain = explain
-        exist_idea.interest = interest
-        exist_idea.develop_tool = develop_tool
-        exist_idea.save()
-        return redirect('ideas:idea_detail', pk=exist_idea.pk)
-    
-    context = {
-        'idea': exist_idea,
-    }
-    return render(request, "ideas/update.html", context)
+    if request.method == 'GET':
+        idea = Idea.objects.get(id=pk)
+        form = IdeaForm(instance=idea)
+        context = {
+            'form': form,
+            'pk': pk
+        }
+        return render(request, 'ideas/update.html', context)
+    else:
+        idea = Idea.objects.get(id=pk)
+        form = IdeaForm(request.POST, request.FILES, instance=idea)
+        if form.is_valid():
+            form.save()
+        return redirect('ideas:idea_detail', pk)
 
 def idea_delete(request, pk):
     if request.method == 'POST':

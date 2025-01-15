@@ -171,26 +171,7 @@
                         {% csrf_token %}
                         <div class="idea_card">
                             <div class="idea_card_right">
-                                <div class="field">
-                                    <label for="title">[1] 아이디어명: </label>
-                                    <input type="text" id="title" name="title">
-                                </div>
-                                <div class="field">
-                                    <label for="image">[2] image: </label>
-                                    <input type="file" id="image" name="image">
-                                </div>
-                                <div class="field textarea">
-                                    <label for="explain">[3] 아이디어 설명: </label>
-                                    <textarea rows="10" id="explain" name="explain"></textarea>
-                                </div>
-                                <div class="field">
-                                    <label for="interest">[4] 아이디어 관심도: </label>
-                                    <input type="text" id="interest" name="interest">
-                                </div>
-                                <div class="field">
-                                    <label for="develop_tool">[5] 예상 개발툴: </label>
-                                    <input type="text" id="develop_tool" name="develop_tool">
-                                </div>
+                                {{form.as_p}}
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="submit_btn">SUBMIT</button>

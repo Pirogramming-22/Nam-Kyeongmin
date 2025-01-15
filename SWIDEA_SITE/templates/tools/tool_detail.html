@@ -162,6 +162,11 @@
         .update_btn {
             background-color:rgb(160, 218, 103);
         }
+        .list_content, .list_content:visited {
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -193,8 +198,9 @@
                         <div class="divide_card"></div>
                         <div class="tool_with_idea">
                             <p class="list_title">> 만들 수 있는 SW 목록</p>
-                            <p>첫번째 아이디어</p>
-                            <p>두번째 아이디어</p>
+                            {% for idea in related_ideas %}
+                                <a href="{% url "ideas:idea_detail" idea.id %}" class="list_content">{{idea.title}}</a>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="buttons">

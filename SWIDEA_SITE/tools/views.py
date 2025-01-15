@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Tool
+from ideas.models import Idea
 
 def tool_list(request):
     tools = Tool.objects.all()
@@ -11,8 +12,10 @@ def tool_list(request):
 
 def tool_detail(request, pk):
     tool = Tool.objects.get(id=pk)
+    related_ideas = Idea.objects.filter(develop_tool=tool).values('title', 'id')
     context = {
-        'tool': tool
+        'tool': tool,
+        'related_ideas': related_ideas,
     }
     return render(request, 'tools/tool_detail.html', context)
 

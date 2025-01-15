@@ -168,6 +168,12 @@
         .update_btn {
             background-color:rgb(160, 218, 103);
         }
+        .link, .link:visited {
+            text-decoration: none;
+            color: black;
+            font-size: 22px;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -203,7 +209,7 @@
                                 <p>1) 아이디어 관심도<div>{{idea.interest}}</div>
                             </div>
                             <div class="idea_devtool">
-                                <p>2) 예상 개발툴<div>{{idea.develop_tool}}</div>
+                                <p>2) 예상 개발툴<div><a href="{% url 'tools:tool_detail' idea.develop_tool_id %}" class="link">{{idea.develop_tool.name}}</a></div>
                             </div>
                             <div class="idea_explain">
                                 <p>3) 아이디어 설명<div>{{idea.explain}}</div>
