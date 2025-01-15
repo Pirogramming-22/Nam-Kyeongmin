@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>My SW-IDEA Site</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'ChosunGu';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            font-family: 'ChosunGu';
+            font-size: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding-block: 20px;
+            padding-inline: 80px;
+            border-bottom: 2px solid Gainsboro;
+        }
+        .left_nav_container{
+            font-weight: 700;
+            text-decoration: none;
+            color: black;
+        }
+        .green{
+            color: Turquoise;
+        }
+        .right_nav_container{
+            display: flex;
+            gap: 140px;
+        }
+        .nav_menu, .nav_menu:visited {
+            font-family: 'ChosunGu';
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        .under_navBar {
+            padding: 50px;
+            height: 100vh;
+            background-color: Tan;
+        }
+        .tool_list_container {
+            padding: 50px;
+            padding-top: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100%;
+            background-color: Linen;
+            border-radius: 4px;
+            border-top: 25px dashed Tan;
+        }
+        .tool_list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .tool_list_intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tool_list_title {
+            font-weight: 700;
+            font-size: 30px;
+        }
+        .tool_list_intro_detail {
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 18px;
+        }
+
+        .tool_list_content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            gap: 10px;
+            margin-block: 60px;
+            align-items: center;
+        }
+        .tool_card {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color:rgba(162, 255, 246, 0.5);
+            border-radius: 10px;
+            font-size: 18px;
+            position: relative;
+            gap: 10px;
+        }
+        .tool_card_content{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-inline: 40px;
+            padding-block: 14px;
+        }
+        .divide_card {
+            border-top: 3px solid rgb(29, 185, 170);
+            margin-block: 12px;
+        }
+        .tool_with_idea{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-inline: 40px;
+            padding-block: 20px;
+        }
+        .tool_with_idea > p{
+            margin-top: 10px;
+            margin-bottom: 0px;
+        }
+        .list_title{
+            font-weight: 700;
+        }
+        .tool_name, .tool_name:visited {
+            text-decoration: none;
+            color: black;
+            font-weight: 700;
+            font-size: 40px;
+            width: 100px;
+        }
+        .tool_type {
+            width: 200px;
+        }
+        .tool_explain {
+            font-size: 16px;
+        }
+        .buttons{
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            gap: 30px;
+        }
+        .delete_btn, .list_btn, .update_btn {
+            font-size: 16px;
+            font-family: 'ChosunGu';
+            font-weight: 700;
+            padding-inline: 14px;
+            padding-block: 10px;
+            border: 1px solid Gainsboro;
+            border-radius: 6px;
+        }
+        .delete_btn {
+            background-color:rgb(246, 88, 119);
+        }
+        .update_btn {
+            background-color:rgb(160, 218, 103);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'ideas:idea_list' %}" class="left_nav_container">My <span class="green">SW Idea</span> Manage</a>
+        <div class="right_nav_container">
+            <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
+            <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
+            <a href="" class="nav_menu">개발툴 등록</a>
+            <a href="{% url 'tools:tool_list' %}" class="nav_menu">개발툴 관리</a>
+        </div>
+    </header>
+    <div class="under_navBar">
+        <div class="tool_list_container">
+            <div class="tool_list">
+                <div class="tool_list_intro">
+                    <div class="tool_list_title">🔧DevTool Detail🧐</div>
+                    <div class="tool_list_intro_detail">
+                        <p>개발툴 세부내용 페이지입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해보아요~!</p>
+                    </div>
+                </div>
+                <div class="tool_list_content">
+                    <div class="tool_card">
+                        <div class="tool_card_content">
+                            <a href="#" class="tool_name">{{tool.name}}</a>
+                            <div class="tool_type">{{tool.type}}</div>
+                            <div class="tool_explain">{{tool.explain}}</div>
+                        </div>
+                        <div class="divide_card"></div>
+                        <div class="tool_with_idea">
+                            <p class="list_title">> 만들 수 있는 SW 목록</p>
+                            <p>첫번째 아이디어</p>
+                            <p>두번째 아이디어</p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <form action="{% url "tools:tool_delete" tool.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="delete_btn">삭제</button>
+                        </form>
+                        <form action="{% url "tools:tool_list" %}">
+                            {% csrf_token %}
+                            <button type="submit" class="list_btn">목록</button>
+                        </form>
+                        <form action="{% url "tools:tool_update" tool.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="update_btn">수정</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

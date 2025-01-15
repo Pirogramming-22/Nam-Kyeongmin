@@ -122,9 +122,9 @@
             height: 80%;
             padding-block: 40px;
             display: flex;
-            justify-content: space-between;
             flex-direction: column;
             font-size: 18px;
+            gap: 40px;
         }
         .textarea {
             display: flex;
@@ -153,7 +153,7 @@
         <div class="right_nav_container">
             <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
             <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
-            <a href="{% url 'tools:tool_create' %}" class="nav_menu">개발툴 등록</a>
+            <a href="" class="nav_menu">개발툴 등록</a>
             <a href="{% url 'tools:tool_list' %}" class="nav_menu">개발툴 관리</a>
         </div>
     </header>
@@ -161,35 +161,27 @@
         <div class="idea_list_container">
             <div class="idea_list">
                 <div class="idea_list_intro">
-                    <div class="idea_list_title">💡Idea Register✍️</div>
+                    <div class="idea_list_title">🔧Tool Register✍️</div>
                     <div class="idea_list_intro_detail">
-                        <p>아이디어 등록 페이지입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
+                        <p>개발툴 등록 페이지입니다. 당신의 개발툴을 잊지 말고 기록하세요!</p>
                     </div>
                 </div>
                 <div class="idea_list_content">
-                    <form action="{% url 'ideas:idea_create' %}" method="post" enctype="multipart/form-data">
+                    <form action="{% url 'tools:tool_create' %}" method="post">
                         {% csrf_token %}
                         <div class="idea_card">
                             <div class="idea_card_right">
                                 <div class="field">
-                                    <label for="title">[1] 아이디어명: </label>
-                                    <input type="text" id="title" name="title">
+                                    <label for="name">[1] 개발툴 이름: </label>
+                                    <input type="text" id="name" name="name">
                                 </div>
                                 <div class="field">
-                                    <label for="image">[2] image: </label>
-                                    <input type="file" id="image" name="image">
+                                    <label for="type">[2] 개발툴 종류: </label>
+                                    <input type="text" id="type" name="type">
                                 </div>
                                 <div class="field textarea">
-                                    <label for="explain">[3] 아이디어 설명: </label>
+                                    <label for="explain">[3] 개발툴 설명: </label>
                                     <textarea rows="10" id="explain" name="explain"></textarea>
-                                </div>
-                                <div class="field">
-                                    <label for="interest">[4] 아이디어 관심도: </label>
-                                    <input type="text" id="interest" name="interest">
-                                </div>
-                                <div class="field">
-                                    <label for="develop_tool">[5] 예상 개발툴: </label>
-                                    <input type="text" id="develop_tool" name="develop_tool">
                                 </div>
                             </div>
                             <div class="buttons">

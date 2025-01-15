@@ -188,8 +188,8 @@
         <div class="right_nav_container">
             <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
             <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
-            <a href="" class="nav_menu">개발툴 등록</a>
-            <a href="" class="nav_menu">개발툴 관리</a>
+            <a href="{% url 'tools:tool_create' %}" class="nav_menu">개발툴 등록</a>
+            <a href="{% url 'tools:tool_list' %}" class="nav_menu">개발툴 관리</a>
         </div>
     </header>
     <div class="under_navBar">
@@ -208,7 +208,7 @@
                                 </span>
                             </button>
                             <div class="filter_content">
-                                <a href="?order=is_like">찜하기순</a>
+                                <a href="?order=-is_like">찜하기순</a>
                                 <a href="?order=title">이름순</a>
                                 <a href="?order=created_at">등록순</a>
                                 <a href="?order=-updated_at">최신수정순</a>
@@ -220,7 +220,7 @@
                     {% for idea in ideas %}
                     <div class="idea_card">
                         <div class="idea_card_top">
-                            <div class="idea_img">
+                            <div class="idea_img" data-idea-id="{{idea.id}}" data-is-like="{{idea.is_like}}">
                                 <img src="{{idea.image.url}}" alt="" class="img">
                                 <i class="like_btn bi bi-star"></i>
                                 <i class="like_btn bi bi-star-fill behind"></i>
@@ -248,8 +248,57 @@
                 const filled_star = parent.querySelector('.bi-star-fill')
 
                 filled_star.classList.toggle('behind');
+
+                const is_like = !filled_star.classList.contains("behind")
+                const like_idea_id = parent.dataset.ideaId;
+
+                fetch('/update_like/', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": getCookie("csrftoken"),
+                    },
+                    body: JSON.stringify({
+                        like_idea_id: like_idea_id,
+                        is_like: is_like,
+                    }),
+                })
+                    .then((response)=>response.json())
+                    .then((data)=>{
+                        if (data.success) {
+                            console.log("관심 상태 업데이트: ", data.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("오류 발생:", error);
+                    });
             });
+
+            const parent = like_btn.closest(".idea_img");
+            const filled_star = parent.querySelector(".bi-star-fill");
+            const is_like = parent.dataset.isLike === "True";
+            
+            if(is_like) {
+                filled_star.classList.remove('behind');
+            }
+            else {
+                filled_star.classList.add('behind');
+            }
         });
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !=='') {
+                const cookies = document.cookie.split('; ');
+                for (let i=0; i<cookies.length; i++) {
+                    const cookie = cookies[i].split('=');
+                    if (cookie[0] === name) {
+                        cookieValue = decodeURIComponent(cookie[1]);
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
     </script>
 </body>
 </html>

@@ -9,4 +9,5 @@ urlpatterns = [
     path('create/', idea_create, name="idea_create"),
     path('delete/<int:pk>/', idea_delete, name="idea_delete"),
     path('update/<int:pk>/', idea_update, name="idea_update"),
+    path('update_like/', update_like, name='update_like'),
 ]

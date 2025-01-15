@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 from .models import Idea
 
 def idea_list(request):
@@ -60,3 +62,19 @@ def idea_delete(request, pk):
         idea.delete()
         return redirect("ideas:idea_list")
     return redirect("ideas:idea_list")
+
+@csrf_exempt
+def update_like(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        idea_id = data.get('like_idea_id')
+        is_like = data.get('is_like')
+        
+        try:
+            idea = Idea.objects.get(id=idea_id)
+            idea.is_like = is_like
+            idea.save()
+            return JsonResponse({'success': True, 'is_like': idea.is_like, 'message': '관심 상태가 업데이트되었습니다.'})
+        except Idea.DoesNotExist:
+            return JsonResponse({'success': False, 'message': '관심 항목이 없습니다.'})
+    return JsonResponse({'success': False, 'message': '잘못된 요청입니다.'}, status=400)

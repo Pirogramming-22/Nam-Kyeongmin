@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>My SW-IDEA Site</title>
     <style>
         *{
@@ -110,9 +111,6 @@
             width: 100%;
             height: 100%;
         }
-        .idea_title {
-            margin-top: 20px;
-        }
         .idea_card_left {
             height: 100%;
             padding-top: 40px;
@@ -128,8 +126,20 @@
             font-size: 18px;
         }
         .idea_title{
+            margin-top: 20px;
             font-weight: 700;
             font-size: 36px;
+            display: flex;
+        }
+        .bi-star, .bi-star-fill{
+            color: gold;
+            font-size: 30px;
+            font-weight: 500;
+            position: absolute;
+            left: 720px;
+        }
+        .behind {
+            opacity: 0%;
         }
         .idea_interest, .idea_devtool, .idea_explain {
             display: flex;
@@ -166,8 +176,8 @@
         <div class="right_nav_container">
             <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
             <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
-            <a href="" class="nav_menu">개발툴 등록</a>
-            <a href="" class="nav_menu">개발툴 관리</a>
+            <a href="{% url 'tools:tool_create' %}" class="nav_menu">개발툴 등록</a>
+            <a href="{% url 'tools:tool_list' %}" class="nav_menu">개발툴 관리</a>
         </div>
     </header>
     <div class="under_navBar">
@@ -185,7 +195,10 @@
                             <div class="idea_img"><img src="{{idea.image.url}}" alt="" class="img"></div>
                         </div>
                         <div class="idea_card_right">
-                            <div class="idea_title">{{idea.title}}</div>
+                            <div class="idea_title" data-is-like="{{idea.is_like}}">{{idea.title}}
+                                <i class="like_btn bi bi-star"></i>
+                                <i class="like_btn bi bi-star-fill behind"></i>
+                            </div>
                             <div class="idea_interest">
                                 <p>1) 아이디어 관심도<div>{{idea.interest}}</div>
                             </div>
@@ -215,5 +228,16 @@
             </div>
         </div>
     </div>
+    <script>
+        const parent = document.querySelector(".idea_title");
+        const filled_star = parent.querySelector(".bi-star-fill");
+        const is_like = parent.dataset.isLike === "True";
+        if(is_like) {
+            filled_star.classList.remove('behind');
+        }
+        else {
+            filled_star.classList.add('behind');
+        }
+    </script>
 </body>
 </html>
