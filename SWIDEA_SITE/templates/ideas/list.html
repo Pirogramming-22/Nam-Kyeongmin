@@ -231,7 +231,10 @@
                         <div class="idea_card_bottom">
                             <div class="idea_devtool">예상 개발툴: {{idea.develop_tool.name}}</div>
                             <div class="idea_interest">
-                                <p>아이디어 관심도: </p><div class="plus">+</div><p>{{idea.interest}}</p><div class="minus">-</div>
+                                <p>아이디어 관심도: </p>
+                                <div class="plus">+</div>
+                                <p class="cnt">{{idea.interest}}</p>
+                                <div class="minus">-</div>
                             </div>
                         </div>
                     </div>
@@ -299,6 +302,25 @@
             }
             return cookieValue;
         }
+
+        const cnt_results = document.querySelectorAll('.cnt');
+        cnt_results.forEach((cnt_result) => {
+            const parent = cnt_result.closest(".idea_interest")
+            const plus_btn = parent.querySelector(".plus")
+            const minus_btn = parent.querySelector(".minus")
+
+            let current_num = Number(cnt_result.innerText);
+            if(1<=current_num && current_num <=5) {
+                plus_btn.addEventListener('click', () => {
+                    let newValue = Number(cnt_result.innerText) + 1;
+                    cnt_result.innerText = newValue;
+                });
+                minus_btn.addEventListener('click', () => {
+                    let newValue = Number(cnt_result.innerText) - 1;
+                    cnt_result.innerText = newValue;
+                });
+            }
+        });
     </script>
 </body>
 </html>
