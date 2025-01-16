@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>My SW-IDEA Site</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'ChosunGu';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            font-family: 'ChosunGu';
+            font-size: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding-block: 20px;
+            padding-inline: 80px;
+            border-bottom: 2px solid Gainsboro;
+        }
+        .left_nav_container{
+            font-weight: 700;
+            text-decoration: none;
+            color: black;
+        }
+        .green{
+            color: Turquoise;
+        }
+        .right_nav_container{
+            display: flex;
+            gap: 140px;
+        }
+        .nav_menu, .nav_menu:visited {
+            font-family: 'ChosunGu';
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        .under_navBar {
+            padding: 50px;
+            height: 100vh;
+            background-color: Tan;
+        }
+        .idea_list_container {
+            padding: 50px;
+            padding-top: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100%;
+            background-color: Linen;
+            border-radius: 4px;
+            border-top: 25px dashed Tan;
+        }
+        .idea_list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .idea_list_intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .idea_list_title {
+            font-weight: 700;
+            font-size: 30px;
+        }
+        .idea_list_intro_detail {
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 18px;
+        }
+        .idea_list_filter {
+            position: absolute;
+            right: -300px;
+        }
+        .filter_btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'ChosunGu';
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px;
+            border: 1px solid Gainsboro;
+            border-radius: 4px;
+            background-color: Bisque;
+        }
+        .idea_list_filter:hover .filter_content {
+            display: block;
+        }
+        .filter_content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            font-family: 'ChosunGu';
+            border-radius: 4px;
+            border-inline: 1px solid Gainsboro;
+        }
+        .filter_content a{
+            display: block;
+            text-decoration: none;
+            font-family: 'ChosunGu';
+            font-size: 16px;
+            font-weight: 500;
+            color: SaddleBrown;
+            padding: 10px;
+            background-color: Bisque;
+            width: 105px;
+            border-block: 1px solid Gainsboro;
+        }
+        .idea_list_content {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            gap: 80px;
+            margin-block: 60px;
+        }
+        .idea_card {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 260px;
+            height: 460px;
+            background-color:rgba(162, 255, 246, 0.5);
+            border-radius: 10px;
+            font-size: 18px;
+            position: relative;
+        }
+        .idea_img {
+            width: 220px;
+            height: 220px;
+            margin: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+        .bi-star, .bi-star-fill{
+            display: block;
+            color: gold;
+            font-size: 30px;
+            font-weight: 500;
+            position: absolute;
+            right: 34px;
+            top: 30px;
+        }
+        .behind {
+            opacity: 0%;
+        }
+        .idea_title, .idea_title:visited {
+            text-decoration: none;
+            color: black;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .divide_card {
+            border-top: 3px solid rgb(20, 117, 107);
+            margin-block: 12px;
+        }
+        .idea_interest {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .plus, .minus {
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    <header>
+        <a href="{% url 'ideas:idea_list' %}" class="left_nav_container">My <span class="green">SW Idea</span> Manage</a>
+        <div class="right_nav_container">
+            <a href="{% url 'ideas:idea_create' %}" class="nav_menu">아이디어 등록</a>
+            <a href="{% url 'ideas:idea_list' %}" class="nav_menu">아이디어 관리</a>
+            <a href="{% url 'tools:tool_create' %}" class="nav_menu">개발툴 등록</a>
+            <a href="{% url 'tools:tool_list' %}" class="nav_menu">개발툴 관리</a>
+        </div>
+    </header>
+    <div class="under_navBar">
+        <div class="idea_list_container">
+            <div class="idea_list">
+                <div class="idea_list_intro">
+                    <div class="idea_list_title">💡Idea List✍️</div>
+                    <div class="idea_list_intro_detail">
+                        <p>나의 아이디어를 잊지 말고 기록해보세요</p>
+                        <div class="idea_list_filter">
+                            <button class="filter_btn">정렬기준
+                                <span class="btn_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="filter_content">
+                                <a href="?order=-is_like">찜하기순</a>
+                                <a href="?order=title">이름순</a>
+                                <a href="?order=created_at">등록순</a>
+                                <a href="?order=-updated_at">최신수정순</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="idea_list_content">
+                    {% for idea in ideas %}
+                    <div class="idea_card">
+                        <div class="idea_card_top">
+                            <div class="idea_img" data-idea-id="{{idea.id}}" data-is-like="{{idea.is_like}}">
+                                <img src="{{idea.image.url}}" alt="" class="img">
+                                <i class="like_btn bi bi-star"></i>
+                                <i class="like_btn bi bi-star-fill behind"></i>
+                            </div>
+                            <a href="{% url 'ideas:idea_detail' idea.pk %}" class="idea_title">{{idea.title}}</a>
+                        </div>
+                        <div class="divide_card"></div>
+                        <div class="idea_card_bottom">
+                            <div class="idea_devtool">예상 개발툴: {{idea.develop_tool.name}}</div>
+                            <div class="idea_interest" data-idea-id="{{idea.id}}">
+                                <p>아이디어 관심도: </p>
+                                <div class="plus">+</div>
+                                <p class="cnt">{{idea.interest}}</p>
+                                <div class="minus">-</div>
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const like_btns = document.querySelectorAll(".like_btn")
+        like_btns.forEach((like_btn) => {
+            like_btn.addEventListener('click', function() {
+                const parent = like_btn.closest('.idea_img');
+                const filled_star = parent.querySelector('.bi-star-fill')
+
+                filled_star.classList.toggle('behind');
+
+                const is_like = !filled_star.classList.contains("behind")
+                const like_idea_id = parent.dataset.ideaId;
+
+                fetch(`/update_like/`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": getCookie("csrftoken"),
+                    },
+                    body: JSON.stringify({
+                        like_idea_id: like_idea_id,
+                        is_like: is_like,
+                    }),
+                })
+                    .then((response)=>response.json())
+                    .then((data)=>{
+                        if (data.success) {
+                            console.log("관심 상태 업데이트: ", data.message);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("오류 발생:", error);
+                    });
+            });
+
+            const parent = like_btn.closest(".idea_img");
+            const filled_star = parent.querySelector(".bi-star-fill");
+            const is_like = parent.dataset.isLike === "True";
+            
+            if(is_like) {
+                filled_star.classList.remove('behind');
+            }
+            else {
+                filled_star.classList.add('behind');
+            }
+        });
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !=='') {
+                const cookies = document.cookie.split('; ');
+                for (let i=0; i<cookies.length; i++) {
+                    const cookie = cookies[i].split('=');
+                    if (cookie[0] === name) {
+                        cookieValue = decodeURIComponent(cookie[1]);
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const cnt_results = document.querySelectorAll('.cnt');
+        cnt_results.forEach((cnt_result) => {
+            const parent = cnt_result.closest(".idea_interest")
+            const plus_btn = parent.querySelector(".plus")
+            const minus_btn = parent.querySelector(".minus")
+            const ideaId = parent.dataset.ideaId;
+
+            let current_num = Number(cnt_result.innerText);
+            plus_btn.addEventListener('click', () => {
+                updateInterest(ideaId, 'plus', cnt_result);
+                new_value = Number(cnt_result.innerText)+1;
+                cnt_result.InnerText = new_value;
+            });
+            minus_btn.addEventListener('click', () => {
+                updateInterest(ideaId, 'minus', cnt_result);
+            });
+        });
+
+        function updateInterest(ideaId, action, cnt_result) {
+            fetch(`/update_interest/${ideaId}/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": getCsrfToken(),
+                },
+                body: new URLSearchParams({
+                    action: action,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    cnt_result.innerText = data.update_interest;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+        function getCsrfToken() {
+            return document.querySelector('[name=csrfmiddlewaretoken]').value;
+        }
+    </script>
+</body>
+</html>

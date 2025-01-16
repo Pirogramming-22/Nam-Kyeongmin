@@ -29,7 +29,7 @@ def review_create(request):
         genre_form = GenreForm(request.POST)
         if genre_form.is_valid():
             genre = genre_form.cleaned_data['genre']
-        review = Review.objects.create(
+            review = Review.objects.create(
             poster = request.FILES['poster'],
             title = request.POST['title'],
             release = request.POST['release'],

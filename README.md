@@ -37,6 +37,10 @@
 - [01/11 SAT] 1. ERD cloud로 '피로마켓' ERD model 만들기
 - [01/11 SAT] 2. Ajax 선행강의(~초기페이지 구현(2/2) 까지) 학습
 
+### Week 4
+- Django 중급 실습(static, media, named_url, ORM, foreign key)
+- [01/14 TUE] 1. Django를 이용한 아이디어 관리 사이트 구현 + 챌린지
+
 <br>
 
 ## ABOUT ME
