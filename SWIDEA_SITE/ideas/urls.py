@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete/<int:pk>/', idea_delete, name="idea_delete"),
     path('update/<int:pk>/', idea_update, name="idea_update"),
     path('update_like/', update_like, name='update_like'),
+    path('update_interest/<int:idea_id>/', update_interest, name="update_interest"),
 ]

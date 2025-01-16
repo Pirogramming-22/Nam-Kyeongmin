@@ -180,9 +180,16 @@
             align-items: center;
             gap: 10px;
         }
+        .plus, .minus {
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+        }
     </style>
 </head>
 <body>
+    {% csrf_token %}
     <header>
         <a href="{% url 'ideas:idea_list' %}" class="left_nav_container">My <span class="green">SW Idea</span> Manage</a>
         <div class="right_nav_container">
@@ -230,11 +237,12 @@
                         <div class="divide_card"></div>
                         <div class="idea_card_bottom">
                             <div class="idea_devtool">예상 개발툴: {{idea.develop_tool.name}}</div>
-                            <div class="idea_interest">
+                            <div class="idea_interest" data-idea-id="{{idea.id}}">
                                 <p>아이디어 관심도: </p>
                                 <div class="plus">+</div>
                                 <p class="cnt">{{idea.interest}}</p>
                                 <div class="minus">-</div>
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
                             </div>
                         </div>
                     </div>
@@ -255,7 +263,7 @@
                 const is_like = !filled_star.classList.contains("behind")
                 const like_idea_id = parent.dataset.ideaId;
 
-                fetch('/update_like/', {
+                fetch(`/update_like/`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -308,19 +316,43 @@
             const parent = cnt_result.closest(".idea_interest")
             const plus_btn = parent.querySelector(".plus")
             const minus_btn = parent.querySelector(".minus")
+            const ideaId = parent.dataset.ideaId;
 
             let current_num = Number(cnt_result.innerText);
-            if(1<=current_num && current_num <=5) {
-                plus_btn.addEventListener('click', () => {
-                    let newValue = Number(cnt_result.innerText) + 1;
-                    cnt_result.innerText = newValue;
-                });
-                minus_btn.addEventListener('click', () => {
-                    let newValue = Number(cnt_result.innerText) - 1;
-                    cnt_result.innerText = newValue;
-                });
-            }
+            plus_btn.addEventListener('click', () => {
+                updateInterest(ideaId, 'plus', cnt_result);
+                new_value = Number(cnt_result.innerText)+1;
+                cnt_result.InnerText = new_value;
+            });
+            minus_btn.addEventListener('click', () => {
+                updateInterest(ideaId, 'minus', cnt_result);
+            });
         });
+
+        function updateInterest(ideaId, action, cnt_result) {
+            fetch(`/update_interest/${ideaId}/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": getCsrfToken(),
+                },
+                body: new URLSearchParams({
+                    action: action,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    cnt_result.innerText = data.update_interest;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+        function getCsrfToken() {
+            return document.querySelector('[name=csrfmiddlewaretoken]').value;
+        }
     </script>
 </body>
 </html>

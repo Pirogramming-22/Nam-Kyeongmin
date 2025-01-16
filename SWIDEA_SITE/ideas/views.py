@@ -75,3 +75,16 @@ def update_like(request):
         except Idea.DoesNotExist:
             return JsonResponse({'success': False, 'message': '관심 항목이 없습니다.'})
     return JsonResponse({'success': False, 'message': '잘못된 요청입니다.'}, status=400)
+
+@csrf_exempt
+def update_interest(request, idea_id):
+    if request.method == 'POST':
+        idea = Idea.objects.get(id=idea_id)
+        action = request.POST.get('action')
+        if action == 'plus':
+            idea.interest += 1
+        elif action == 'minus':
+            idea.interest -= 1
+        idea.save()
+        return JsonResponse({"success": True, "update_interest": idea.interest})
+    return JsonResponse({"success": False, "error": "Invalid request"}, status=400)
