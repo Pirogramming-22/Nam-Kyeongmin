@@ -34,12 +34,18 @@
 - Django를 이용한 CRUD 실습과 DB 살펴보기
 - [01/09 THU] 1. Django를 이용한 myMovieReviews 웹사이트 구현 + 챌린지
 - Django를 이용한 user-model custom과 ERD-cloud&MySQL로 알아보는 DB 개론
-- [01/11 SAT] 1. ERD cloud로 '피로마켓' ERD model 만들기
+- [01/11 SAT] 1. ERD cloud로 '피로마켓' ERD model 만들기 + 챌린지
 - [01/11 SAT] 2. Ajax 선행강의(~초기페이지 구현(2/2) 까지) 학습
 
 ### Week 4
 - Django 중급 실습(static, media, named_url, ORM, foreign key)
 - [01/14 TUE] 1. Django를 이용한 아이디어 관리 사이트 구현 + 챌린지
+- 협업 툴 세션(Figma, Notion, Git-Hub)
+- [01/17 THU] Team-mission: Piro Card Game 웹사이트 (3주차 6조)
+- Ajax 이론 및 실습, fetch API, Axios 실습
+- [01/19 SAT] 1. Ajax를 사용한 Pirostagram 사이트 구현
+
+### Week 5
 
 <br>
 
