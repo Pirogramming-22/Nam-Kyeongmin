@@ -171,11 +171,13 @@
         {% endblock %}
       </main>
       <footer>
+        {% block forFooter %}
         <button class="navBar">1</button>
         <button class="navBar">2</button>
         <button class="navBar">3</button>
         <button class="navBar">4</button>
         <button class="navBar navBar--selected">5</button>
+        {% endblock %}
       </footer>
     </div>
   </body>
