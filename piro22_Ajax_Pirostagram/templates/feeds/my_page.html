@@ -1,0 +1,50 @@
+{% extends 'feeds/home.html' %}
+{% load static %}
+{% block forNav %}
+    <div class="header__username_container">
+        <div class="header__username">EPISODE.NKM</div>
+        <div class="header__where">게시물</div>
+    </div>
+    <div class="header__rightButtons"></div>
+{% endblock %}
+{% block forFeed %}
+<aside class="profile_nav">
+    <div class="profile_nav_container">
+        <div class="profile_nav_left">
+            <button class="profile_img_container">
+              <img
+                src="{% static 'assets/images/episode_nkm.jpg' %}"
+                alt="프로필 보기"
+              />
+            </button>
+            <div class="profile_userinfo_name">episode.nkm</div>
+        </div>
+        <button>
+            <img src="{% static 'assets/icons/more.svg' %}" alt="더보기 열기 버튼" />
+        </button>
+    </div>
+</aside>
+<div class="feed_container">
+    <div class="feed_img_container">
+        <img src="{% static 'assets/images/feed.jpg' %}" alt="게시물 사진" />
+    </div>
+    <div class="feed_btn_container">
+        <div class="feed_btn_left">
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/heart.svg' %}" alt="좋아요 버튼" />
+            </button>
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/chat.svg' %}" alt="댓글 버튼" />
+            </button>
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/send.svg' %}" alt="공유 버튼" />
+            </button>
+        </div>
+        <div class="feed_btn_right">
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/bookmark.svg' %}" alt="게시물 저장 버튼" />
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
