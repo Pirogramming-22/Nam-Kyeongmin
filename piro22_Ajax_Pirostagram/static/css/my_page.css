@@ -305,6 +305,13 @@ footer {
     gap: 4px;
     width: 100%;
 }
+.delete_comment_btn {
+    width: 34px;
+    height: 20px;
+    background-color: var(--coral-red);
+    color: var(--white);
+    border-radius: 10px;
+}
 .comment_input {
     height: 40px;
     padding: 10px;
@@ -319,7 +326,7 @@ footer {
     border-radius: 15px;
     padding: 8px;
 }
-.comment_upload_btn > img {
+.delete_comment_btn > img, .comment_upload_btn > img {
     width: 100%;
     height: 90%;
     filter: invert(100%) sepia(84%) saturate(161%) hue-rotate(195deg) brightness(118%) contrast(100%);
