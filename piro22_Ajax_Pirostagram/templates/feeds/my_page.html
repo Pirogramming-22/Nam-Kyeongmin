@@ -2,7 +2,7 @@
 {% load static %}
 {% block forNav %}
     <div class="header__username_container">
-        <div class="header__username">EPISODE.NKM</div>
+        <div class="header__username">{{feed.author}}</div>
         <div class="header__where">게시물</div>
     </div>
     <div class="header__rightButtons"></div>
@@ -17,7 +17,7 @@
                 alt="프로필 보기"
               />
             </button>
-            <div class="profile_userinfo_name">episode.nkm</div>
+            <div class="profile_userinfo_name">{{feed.author}}</div>
         </div>
         <button>
             <img src="{% static 'assets/icons/more.svg' %}" alt="더보기 열기 버튼" />
@@ -30,7 +30,7 @@
     </div>
     <div class="feed_btn_container">
         <div class="feed_btn_left">
-            <button class="feed_btn">
+            <button class="feed_btn" onclick="onClickLike(1)">
                 <img src="{% static 'assets/icons/heart.svg' %}" alt="좋아요 버튼" />
             </button>
             <button class="feed_btn">
@@ -46,8 +46,9 @@
             </button>
         </div>
     </div>
+    <div class="feed_content">{{feed.author}}  {{feed.content}}</div>
     <div class="content_container">
-        <div class="update_like_num">명이 이 게시글을 좋아합니다.</div>
+        <div class="update_like_num"></div>
         <div class="comment_container">
             <div class="uploaded_comment_container">
                 <div class="upload_comment">

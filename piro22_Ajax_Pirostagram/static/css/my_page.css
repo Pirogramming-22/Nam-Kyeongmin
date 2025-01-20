@@ -248,7 +248,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
-    padding-block: 14px;
+    padding-top: 14px;
 }
 .feed_btn {
     width: 25px;
@@ -260,9 +260,17 @@ footer {
     height: 100%;
     filter: invert(100%) sepia(84%) saturate(161%) hue-rotate(195deg) brightness(118%) contrast(100%);
 }
+.feed_content {
+    width: 90%;
+    margin-inline: auto;
+    padding-block: 14px;
+    align-items: center;
+    font-size: 16px;
+}
 /* content_container */
 .content_container {
-    padding: 16px;
+    width: 90%;
+    margin-inline:auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
