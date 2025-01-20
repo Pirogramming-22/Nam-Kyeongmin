@@ -1,5 +1,9 @@
 const requestLike = new XMLHttpRequest();
 const onClickLike = (feedID) => {
+    const likebtn = document.querySelector(".likebtn");
+    const heart_fill = likebtn.getAttribute("data-heart-url");
+    likebtn.innerHTML = `<img src="${heart_fill}" alt="좋아요 버튼" />`;
+
     const url = "/like_ajax/";
     requestLike.open("POST", url, true);
     requestLike.setRequestHeader(
