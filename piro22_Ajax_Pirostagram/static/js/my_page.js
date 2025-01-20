@@ -13,6 +13,22 @@ const onClickLike = (feedID) => {
     requestLike.send(JSON.stringify({id: feedID}));
 };
 
+function onClickComment() {
+    const inputField = document.querySelector('.comment_input');
+    const inputValue = inputField.value;
+    const commentParent = document.querySelector('.uploaded_comment_container');
+    const newComment = document.createElement('div');
+    newComment.classList.add('upload_comment');
+
+    newComment.innerHTML = `
+        <div class="commet_author">episode.nkm</div>
+        <div class="comment_content">${inputValue}</div>
+    `;
+
+    commentParent.appendChild(newComment);
+    inputField.value = '';
+}
+
 requestLike.onreadystatechange = () => {
     if(requestLike.readyState === XMLHttpRequest.DONE) {
         if(requestLike.status === 200) {

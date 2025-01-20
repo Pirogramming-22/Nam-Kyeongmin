@@ -270,6 +270,7 @@ footer {
 /* content_container */
 .content_container {
     width: 90%;
+    height: 255px;
     margin-inline:auto;
     display: flex;
     flex-direction: column;
