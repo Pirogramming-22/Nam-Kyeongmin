@@ -1,0 +1,89 @@
+{% extends 'feeds/home.html' %}
+{% load static %}
+{% block forNav %}
+    <div class="header__username_container">
+        <div class="header__username">{{feed.author}}</div>
+        <div class="header__where">게시물</div>
+    </div>
+    <div class="header__rightButtons"></div>
+{% endblock %}
+{% block forFeed %}
+<aside class="profile_nav">
+    <div class="profile_nav_container">
+        <div class="profile_nav_left">
+            <button class="profile_img_container">
+              <img
+                src="{% static 'assets/images/episode_nkm.jpg' %}"
+                alt="프로필 보기"
+              />
+            </button>
+            <div class="profile_userinfo_name">{{feed.author}}</div>
+        </div>
+        <button>
+            <img src="{% static 'assets/icons/more.svg' %}" alt="더보기 열기 버튼" />
+        </button>
+    </div>
+</aside>
+<div class="feed_container">
+    <div class="feed_img_container">
+        <img src="{% static 'assets/images/feed.jpg' %}" alt="게시물 사진" />
+    </div>
+    <div class="feed_btn_container">
+        <div class="feed_btn_left">
+            <button class="feed_btn likebtn" onclick="onClickLike(1)" data-heart-url="{% static 'assets/icons/heart-fill.svg' %}">
+                <img src="{% static 'assets/icons/heart.svg' %}" alt="좋아요 버튼" />
+            </button>
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/chat.svg' %}" alt="댓글 버튼" />
+            </button>
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/send.svg' %}" alt="공유 버튼" />
+            </button>
+        </div>
+        <div class="feed_btn_right">
+            <button class="feed_btn">
+                <img src="{% static 'assets/icons/bookmark.svg' %}" alt="게시물 저장 버튼" />
+            </button>
+        </div>
+    </div>
+    <div class="feed_content">{{feed.author}}  {{feed.content}}</div>
+    <div class="content_container">
+        <div class="update_like_num"></div>
+        <div class="comment_container">
+            <div class="uploaded_comment_container" data-trash-icon="{% static 'assets/icons/trash.svg' %}">
+                <div class="upload_comment">
+                    <div class="commet_author">jannabijh</div>
+                    <div class="comment_content">저랑 볼링 한판 붙으시죠</div>
+                </div>
+                <div class="upload_comment">
+                    <div class="commet_author">day6kilogram</div>
+                    <div class="comment_content">오 뽈링~~😎</div>
+                </div>
+            </div>
+            <div class="comment_input_container">
+                <input type="text" placeholder="댓글을 입력하세요." class="comment_input">
+                <button type="submit" class="comment_upload_btn" onclick="onClickComment()">
+                    <img src="{% static "assets/icons/arrow-up.svg" %}" alt="댓글 업로드 버튼" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block forFooter %}
+    <button class="feed_btn footer_btn">
+        <img src="{% static 'assets/icons/house-door.svg' %}" alt="홈 버튼" />
+    </button>
+    <button class="feed_btn footer_btn">
+        <img src="{% static 'assets/icons/search.svg' %}" alt="검색 버튼" />
+    </button>
+    <button class="feed_btn footer_btn">
+        <img src="{% static 'assets/icons/plus-square.svg' %}" alt="게시글 추가 버튼" />
+    </button>
+    <button class="feed_btn_w footer_btn">
+        <img src="{% static 'assets/icons/reels.svg' %}" alt="릴스 버튼" />
+    </button>
+    <button class="feed_btn footer_btn navBar--selected">
+        <img src="{% static 'assets/icons/person-circle.svg' %}" alt="계정 홈 버튼" />
+    </button>
+{% endblock %}
